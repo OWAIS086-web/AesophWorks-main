@@ -51,11 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AesophWorks.Database\AesophWorks.Database.csproj">
+      <Project>{D5B0A909-10E2-44CE-9D5F-BA7461F3C0F7}</Project>
+      <Name>AesophWorks.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AesophWorks.Entities\AesophWorks.Entities.csproj">
+      <Project>{C9815FD6-1E28-4769-BD47-7C2E6C6848BC}</Project>
+      <Name>AesophWorks.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
