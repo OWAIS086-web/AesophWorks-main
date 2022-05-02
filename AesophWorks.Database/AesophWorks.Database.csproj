@@ -56,6 +56,18 @@
     <Compile Include="Migrations\202204280413520_usersadded.designer.cs">
       <DependentUpon>202204280413520_usersadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204292347202_attributecolumnadded.cs" />
+    <Compile Include="Migrations\202204292347202_attributecolumnadded.designer.cs">
+      <DependentUpon>202204292347202_attributecolumnadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204300356587_accentadded.cs" />
+    <Compile Include="Migrations\202204300356587_accentadded.designer.cs">
+      <DependentUpon>202204300356587_accentadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204300947173_allitemsadded.cs" />
+    <Compile Include="Migrations\202204300947173_allitemsadded.designer.cs">
+      <DependentUpon>202204300947173_allitemsadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +84,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202204280413520_usersadded.resx">
       <DependentUpon>202204280413520_usersadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204292347202_attributecolumnadded.resx">
+      <DependentUpon>202204292347202_attributecolumnadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204300356587_accentadded.resx">
+      <DependentUpon>202204300356587_accentadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204300947173_allitemsadded.resx">
+      <DependentUpon>202204300947173_allitemsadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
