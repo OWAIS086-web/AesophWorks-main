@@ -14,5 +14,51 @@ namespace AesophWorks.Controllers
         {
             return View();
         }
+
+
+        public ActionResult CuttingBoard()
+        {
+            return View();
+        }
+
+        public ActionResult ServingTrays()
+        {
+            return View();
+        }
+
+        public ActionResult ChautericeBoard()
+        {
+            return View();
+        }
+
+        public ActionResult Ornaments()
+        {
+            return View();
+        }
+
+        public ActionResult WeddingFavors()
+        {
+            return View();
+        }
+
+        public ActionResult Coasters()
+        {
+            return View();
+        }
+
+        public ActionResult AdirondackChairs()
+        {
+            return View();
+        }
+
+        public ActionResult CNCEngraving()
+        {
+            return View();
+        }
+
+        public ActionResult Knives()
+        {
+            return View();
+        }
     }
 }

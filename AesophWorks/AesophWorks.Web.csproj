@@ -1282,6 +1282,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\CuttingBoard.cshtml" />
+    <Content Include="Views\Item\ServingTrays.cshtml" />
+    <Content Include="Views\Item\ChautericeBoard.cshtml" />
+    <Content Include="Views\Item\Ornaments.cshtml" />
+    <Content Include="Views\Item\WeddingFavors.cshtml" />
+    <Content Include="Views\Item\Coasters.cshtml" />
+    <Content Include="Views\Item\AdirondackChairs.cshtml" />
+    <Content Include="Views\Item\CNCEngraving.cshtml" />
+    <Content Include="Views\Item\Knives.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
