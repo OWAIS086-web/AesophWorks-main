@@ -1,0 +1,81 @@
+﻿@model AesophWorks.ViewModels.UsersListingViewModel
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h2>Users</h2>
+        <hr />
+
+
+        <div class="row mb-3">
+            <div class="col-md-6 col-lg-2 col-xlg-3">
+                <div class="card card-hover">
+                    <div class="box bg-cyan text-center">
+                        <a href="@Url.Action("Dashboard","Admin")">
+
+                            <h1 class="font-light text-white">
+                                <i class="mdi mdi-keyboard-return"></i>
+                            </h1>
+                            <h6 class="text-white">Back to Main Screen</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-2 col-xlg-3">
+                <div class="card card-hover">
+                    <div class="box bg-info text-center">
+                        <a href="@Url.Action("UserAction","Admin")">
+
+                            <h1 class="font-light text-white">
+                                <i class="mdi mdi-plus"></i>
+                            </h1>
+                            <h6 class="text-white">Add New User</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-2 col-xlg-3">
+                <div class="card card-hover">
+                    <div class="box bg-danger text-center">
+                        <a href="@Url.Action("Users","Admin")">
+
+                            <h1 class="font-light text-white">
+                                <i class="mdi mdi-restart"></i>
+                            </h1>
+                            <h6 class="text-white">Reset</h6>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-lg-12">
+                <form>
+                    <div class="input-group">
+                        <input type="text" name="searchterm" class="form-control" placeholder="Search." value="@Model.SearchTerm">
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+
+
+                        <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search mr-1"></i> Search</button>
+                        
+                    </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-lg-12">
+                @{
+                    Html.RenderPartial("_UserListing", Model);
+                }
+            </div>
+        </div>
+
+    </div>
+</div>

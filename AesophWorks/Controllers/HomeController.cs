@@ -26,5 +26,11 @@ namespace AesophWorks.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
     }
 }
