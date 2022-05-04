@@ -68,6 +68,10 @@
     <Compile Include="Migrations\202204300947173_allitemsadded.designer.cs">
       <DependentUpon>202204300947173_allitemsadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205041516167_nameaddedbaseentity.cs" />
+    <Compile Include="Migrations\202205041516167_nameaddedbaseentity.designer.cs">
+      <DependentUpon>202205041516167_nameaddedbaseentity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204300947173_allitemsadded.resx">
       <DependentUpon>202204300947173_allitemsadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205041516167_nameaddedbaseentity.resx">
+      <DependentUpon>202205041516167_nameaddedbaseentity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

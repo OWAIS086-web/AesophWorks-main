@@ -33,4 +33,49 @@ namespace AesophWorks.ViewModels
         public string TypeOfCuttingBoard { get; set; }
         public bool FingerGroove { get; set; }
     }
+
+    public class ServingTrayListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<ServingTrays> ServingTrays { get; set; }
+    }
+
+    public class ServingTrayActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string TypeOfServingTrays { get; set; }
+        public string Type { get; set; }
+        public bool Handles { get; set; }
+    }
+
+    public class ChautericeBoardListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<ChautericeBoard> ChautericeBoards { get; set; }
+    }
+
+    public class ChautericeBoardActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string TypeOfChautericeBoard { get; set; }
+        public string Type { get; set; }
+        public bool Handles { get; set; }
+    }
+
+    public class CoasterListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<Coasters> Coasters { get; set; }
+    }
+
+    public class CoasterActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Shape { get; set; }
+        public string Font { get; set; }
+        public string  Customization { get; set; }
+    }
 }

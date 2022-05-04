@@ -78,16 +78,16 @@ namespace AesophWorks.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(UsersActionViewModel model)
+        public ActionResult Delete(CuttingBoardActionViewModel model)
         {
 
             if (model.ID != 0) //we are trying to delete a record
             {
-                var user = UserServices.Instance.GetUser(model.ID);
-                UserServices.Instance.DeleteUser(user.ID);
+                var cuttingBoard = ItemServices.Instance.GetCuttingBoard(model.ID);
+                ItemServices.Instance.DeleteCuttingBoard(cuttingBoard.ID);
 
             }
-            return RedirectToAction("Users", "Admin");
+            return RedirectToAction("CuttingBoard", "Item");
 
         }
     }

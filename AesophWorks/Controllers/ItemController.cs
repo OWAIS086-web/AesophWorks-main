@@ -32,14 +32,18 @@ namespace AesophWorks.Controllers
             return View(model);
         }
 
-        public ActionResult ServingTrays()
+        public ActionResult ServingTrays(string SearchTerm)
         {
-            return View();
+            ServingTrayListingViewModel model = new ServingTrayListingViewModel();
+            model.ServingTrays = ItemServices.Instance.GetAllServingTrays(SearchTerm);
+            return View(model);
         }
 
-        public ActionResult ChautericeBoard()
+        public ActionResult ChautericeBoard(string SearchTerm)
         {
-            return View();
+            ChautericeBoardListingViewModel model = new ChautericeBoardListingViewModel();
+            model.ChautericeBoards = ItemServices.Instance.GetAllChautericeBoards(SearchTerm);
+            return View(model);
         }
 
         public ActionResult Ornaments()
@@ -52,9 +56,11 @@ namespace AesophWorks.Controllers
             return View();
         }
 
-        public ActionResult Coasters()
+        public ActionResult Coasters(string SearchTerm)
         {
-            return View();
+            CoasterListingViewModel model = new CoasterListingViewModel();
+            model.Coasters = ItemServices.Instance.GetAllCoasters(SearchTerm);
+            return View(model);
         }
 
         public ActionResult AdirondackChairs()

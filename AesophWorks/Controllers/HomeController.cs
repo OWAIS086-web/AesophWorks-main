@@ -38,11 +38,12 @@ namespace AesophWorks.Controllers
 
         public ActionResult LogOut()
         {
+            
             Session["ID"] = null;
             Session["UserName"] = null;
             Session["Email"] = null;
             Session["Role"] = null;
-            return View("Login");
+            return RedirectToAction("", "");
         }
 
 
