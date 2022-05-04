@@ -2,6 +2,7 @@
 using AesophWorks.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace AesophWorks.Services
 
             using (var context = new AWContext())
             {
-                if (SearchTerm != "")
+                if (SearchTerm != null)
                 {
                     return context.CuttingBoards.Where(x => x.Name.Contains(SearchTerm)).ToList();
                 }
@@ -56,6 +57,15 @@ namespace AesophWorks.Services
             using (var context = new AWContext())
             {
                 context.CuttingBoards.Add(cuttingBoard);
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateItem(CuttingBoard cuttingBoard)
+        {
+            using (var context = new AWContext())
+            {
+                context.Entry(cuttingBoard).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

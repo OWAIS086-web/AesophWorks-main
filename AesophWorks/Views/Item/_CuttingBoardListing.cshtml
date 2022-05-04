@@ -16,45 +16,18 @@
                             <tr>
 
                                 <th>
-                                    PO #
+                                   Name
                                 </th>
                                 <th>
-                                    Broker
+                                    Cutting Board Type
                                 </th>
                                 <th>
-                                    Carrier
+                                    Finger Groove
                                 </th>
                                 <th>
-                                    Driver
+                                    Juice Groove
                                 </th>
-                                <th>
-                                    From
-                                </th>
-                                <th>
-                                    To
-                                </th>
-                                <th>
-                                    Rate
-                                </th>
-                                <th>Dispatcher</th>
-                                <th>
-                                    Delivery Date
-                                </th>
-                                <th>
-                                    Pickup Date
-                                </th>
-                                <th>
-                                    Booked By
-                                </th>
-                                <th>
-                                    Status
-                                </th>
-                                <th>
-                                    Payment Status
-                                </th>
-                                <th>
-                                    PDF
-                                </th>
+                               
                                 <th>
                                     Action
                                 </th>
@@ -72,7 +45,7 @@
 
                                     <td>
                                         <button data-id="@item.ID" type="button" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</button>
-                                        <button data-href="@Url.Action("Delete", "Trip", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text" data-toggle="modal" data-target="#actionModal"><i class="mdi mdi-delete"></i>DELETE</button>
+                                        <a href="@Url.Action("Delete", "CuttingBoard", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text" ><i class="mdi mdi-delete"></i>DELETE</a>
                                        
                                     </td>
                                 </tr>
@@ -93,9 +66,9 @@
 </div>
 
 <script>
-    @*$(".btnEdit").click(function () {
+    $(".btnEdit").click(function () {
         $.ajax({
-            url: '@Url.Action("Action", "Trip")',
+            url: '@Url.Action("Action", "CuttingBoard")',
             type: "GET",
             data: {ID: $(this).attr("data-id") }
         })
@@ -105,5 +78,8 @@
             .error(function (error) {
                 alert(error);
             })
-    })*@
+    })
+
+
+
     </script>

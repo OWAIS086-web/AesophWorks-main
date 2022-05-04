@@ -1300,6 +1300,7 @@
     <Content Include="Views\Admin\_DeleteUser.cshtml" />
     <Content Include="Views\CuttingBoard\Action.cshtml" />
     <Content Include="Views\Item\_CuttingBoardListing.cshtml" />
+    <Content Include="Views\CuttingBoard\_Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
