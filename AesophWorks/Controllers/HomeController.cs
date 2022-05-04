@@ -34,6 +34,18 @@ namespace AesophWorks.Controllers
             return View();
         }
 
+        [HttpGet]
+
+        public ActionResult LogOut()
+        {
+            Session["ID"] = null;
+            Session["UserName"] = null;
+            Session["Email"] = null;
+            Session["Role"] = null;
+            return View("Login");
+        }
+
+
 
         [HttpPost]
         public ActionResult Login(string username, string password)
@@ -41,6 +53,7 @@ namespace AesophWorks.Controllers
             var user = UserServices.Instance.GetUserForLogin(username, password);
             if (user != null)
             {
+               
                 Session["ID"] = user.ID.ToString();
                 Session["UserName"] = user.UserName.ToString();
                 Session["Email"] = user.Email.ToString();

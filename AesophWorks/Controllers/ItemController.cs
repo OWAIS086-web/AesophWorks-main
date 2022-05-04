@@ -1,4 +1,5 @@
-﻿using AesophWorks.ViewModels;
+﻿using AesophWorks.Services;
+using AesophWorks.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,25 @@ namespace AesophWorks.Controllers
     public class ItemController : Controller
     {
         // GET: Item
+        //bool isInRole = UserServices.Instance.CheckRoleForAdmin();
         public ActionResult Index()
         {
-            return View();
+            //if (isInRole == false)
+            //{
+            //    return RedirectToAction("LogOut", "Home");
+            //}
+            //else
+            //{
+                return View();
+            
         }
 
 
-        public ActionResult CuttingBoard()
+        public ActionResult CuttingBoard(string SearchTerm)
         {
-            return View();
+            CuttingBoardListingViewModel model = new CuttingBoardListingViewModel();
+            model.CuttingBoards = ItemServices.Instance.GetAllCuttingBoard(SearchTerm);
+            return View(model);
         }
 
         public ActionResult ServingTrays()

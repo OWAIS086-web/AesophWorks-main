@@ -15,8 +15,15 @@ namespace AesophWorks.Controllers
         // GET: Admin
         public ActionResult Dashboard()
         {
+            
             return View();
         }
+       
+
+
+
+
+
 
         public ActionResult Users(string SearchTerm)
         {
@@ -48,6 +55,7 @@ namespace AesophWorks.Controllers
             }
         }
 
+     
 
         [HttpPost]
         public ActionResult UserAction(UsersActionViewModel model)

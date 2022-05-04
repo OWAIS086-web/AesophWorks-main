@@ -25,9 +25,32 @@ namespace AesophWorks.Services
         }
         #endregion
 
-        
+        public List<CuttingBoard> GetAllCuttingBoard(string SearchTerm)
+        {
 
+            using (var context = new AWContext())
+            {
+                if (SearchTerm != "")
+                {
+                    return context.CuttingBoards.Where(x => x.Name.Contains(SearchTerm)).ToList();
+                }
+                else
+                {
+                    return context.CuttingBoards.ToList();
+                }
+            }
+        }
 
+        public CuttingBoard GetCuttingBoard(int ID)
+        {
+
+            using (var context = new AWContext())
+            {
+
+                return context.CuttingBoards.Find(ID);
+            }
+
+        }
         public void SaveItem(CuttingBoard cuttingBoard)
         {
             using (var context = new AWContext())

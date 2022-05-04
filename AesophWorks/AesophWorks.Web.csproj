@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CuttingBoardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1297,6 +1298,8 @@
     <Content Include="Views\Admin\_UserListing.cshtml" />
     <Content Include="Views\Admin\UserAction.cshtml" />
     <Content Include="Views\Admin\_DeleteUser.cshtml" />
+    <Content Include="Views\CuttingBoard\Action.cshtml" />
+    <Content Include="Views\Item\_CuttingBoardListing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace AesophWorks.Services
 {
@@ -26,12 +27,44 @@ namespace AesophWorks.Services
         }
         #endregion
 
+
         public User GetUser(int ID)
         {
             using (var context = new AWContext())
             {
                 return context.Users.Find(ID);
             }
+        }
+
+        public bool CheckRoleForAdmin()
+        {
+
+            bool Authenticaed = false;
+            if (HttpContext.Current.Session["UserName"] == null)
+            {
+                Authenticaed = false;
+            }
+
+            string[] roles = System.Web.Security.Roles.GetRolesForUser(Convert.ToString(HttpContext.Current.Session["UserName"]));
+            if (roles.Length != 0)
+            {
+                if (roles[0] == "Admin")
+                {
+                    Authenticaed = true;
+                }
+                else
+                {
+                    Authenticaed = false;
+                }
+            }
+            else
+            {
+                Authenticaed = false;
+            }
+            return Authenticaed;
+
+
+           
         }
 
         public User GetUserForLogin(string UserName, string Password)
