@@ -20,10 +20,10 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Action(int ID = 0)
         {
-            CNCEngravingActionViewModel model = new CNCEngravingActionViewModel();
+            ItemActionViewModel model = new ItemActionViewModel();
             if (ID != 0)
             {
-                var CNCEngraving = ItemServices.Instance.GetCNCEngraving(ID);
+                var CNCEngraving = ItemServices.Instance.GetItem(ID);
                 model.ID = CNCEngraving.ID;
                 model.Name = CNCEngraving.Name;
                 model.Font = CNCEngraving.Font;
@@ -41,11 +41,11 @@ namespace AesophWorks.Controllers
 
 
         [HttpPost]
-        public ActionResult Action(CNCEngravingActionViewModel model)
+        public ActionResult Action(ItemActionViewModel model)
         {
             if (model.ID != 0) //update record
             {
-                var CNCEngraving = ItemServices.Instance.GetCNCEngraving(model.ID);
+                var CNCEngraving = ItemServices.Instance.GetItem(model.ID);
 
                 CNCEngraving.ID = model.ID;
                 CNCEngraving.Name = model.Name;
@@ -57,7 +57,7 @@ namespace AesophWorks.Controllers
             }
             else
             {
-                var CNCEngraving = new CNCEngraving();
+                var CNCEngraving = new Item();
                 CNCEngraving.Name = model.Name;
                 CNCEngraving.Quantity = model.Quantity;
                 CNCEngraving.Font = model.Font;
@@ -70,21 +70,21 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Delete(int ID)
         {
-            CNCEngravingActionViewModel model = new CNCEngravingActionViewModel();
-            var CNCEngraving = ItemServices.Instance.GetCNCEngraving(ID);
+            ItemActionViewModel model = new ItemActionViewModel();
+            var CNCEngraving = ItemServices.Instance.GetItem(ID);
             model.ID = CNCEngraving.ID;
             model.Name = CNCEngraving.Name;
             return View("_Delete", model);
         }
 
         [HttpPost]
-        public ActionResult Delete(CNCEngravingActionViewModel model)
+        public ActionResult Delete(ItemActionViewModel model)
         {
 
             if (model.ID != 0) //we are trying to delete a record
             {
-                var CNCEngraving = ItemServices.Instance.GetCNCEngraving(model.ID);
-                ItemServices.Instance.DeleteCNCEngraving(CNCEngraving.ID);
+                var CNCEngraving = ItemServices.Instance.GetItem(model.ID);
+                ItemServices.Instance.DeleteItem(CNCEngraving.ID);
 
             }
             return RedirectToAction("CNCEngraving", "Item");

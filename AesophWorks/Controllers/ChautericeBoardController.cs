@@ -20,15 +20,14 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Action(int ID = 0)
         {
-            ChautericeBoardActionViewModel model = new ChautericeBoardActionViewModel();
+            ItemActionViewModel model = new ItemActionViewModel();
             if (ID != 0)
             {
-                var ChautericeBoard = ItemServices.Instance.GetChautericeBoard(ID);
+                var ChautericeBoard = ItemServices.Instance.GetItem(ID);
                 model.ID = ChautericeBoard.ID;
                 model.Name = ChautericeBoard.Name;
                 model.Handles = ChautericeBoard.Handles;
                 model.Type = ChautericeBoard.Type;
-                model.TypeOfChautericeBoard = ChautericeBoard.TypeOfChautericeBoard;
                 return PartialView("Action", model);
 
             }
@@ -41,15 +40,14 @@ namespace AesophWorks.Controllers
 
 
         [HttpPost]
-        public ActionResult Action(ChautericeBoardActionViewModel model)
+        public ActionResult Action(ItemActionViewModel model)
         {
             if (model.ID != 0) //update record
             {
-                var ChautericeBoard = ItemServices.Instance.GetChautericeBoard(model.ID);
+                var ChautericeBoard = ItemServices.Instance.GetItem(model.ID);
 
                 ChautericeBoard.ID = model.ID;
                 ChautericeBoard.Name = model.Name;
-                ChautericeBoard.TypeOfChautericeBoard = model.TypeOfChautericeBoard;
                 ChautericeBoard.Handles = model.Handles;
                 ChautericeBoard.Type = model.Type;
                 ItemServices.Instance.UpdateItem(ChautericeBoard);
@@ -57,9 +55,8 @@ namespace AesophWorks.Controllers
             }
             else
             {
-                var ChautericeBoard = new ChautericeBoard();
+                var ChautericeBoard = new Item();
                 ChautericeBoard.Name = model.Name;
-                ChautericeBoard.TypeOfChautericeBoard = model.TypeOfChautericeBoard;
                 ChautericeBoard.Handles = model.Handles;
                 ChautericeBoard.Type = model.Type;
                 ItemServices.Instance.SaveItem(ChautericeBoard);
@@ -70,8 +67,8 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Delete(int ID)
         {
-            ChautericeBoardActionViewModel model = new ChautericeBoardActionViewModel();
-            var ChautericeBoard = ItemServices.Instance.GetChautericeBoard(ID);
+            ItemActionViewModel model = new ItemActionViewModel();
+            var ChautericeBoard = ItemServices.Instance.GetItem(ID);
             model.ID = ChautericeBoard.ID;
             model.Name = ChautericeBoard.Name;
 
@@ -79,13 +76,13 @@ namespace AesophWorks.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(ChautericeBoardActionViewModel model)
+        public ActionResult Delete(ItemActionViewModel model)
         {
 
             if (model.ID != 0) //we are trying to delete a record
             {
-                var ChautericeBoard = ItemServices.Instance.GetChautericeBoard(model.ID);
-                ItemServices.Instance.DeleteChautericeBoard(ChautericeBoard.ID);
+                var ChautericeBoard = ItemServices.Instance.GetItem(model.ID);
+                ItemServices.Instance.DeleteItem(ChautericeBoard.ID);
 
             }
             return RedirectToAction("ChautericeBoard", "Item");

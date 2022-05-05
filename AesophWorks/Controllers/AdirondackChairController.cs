@@ -20,10 +20,10 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Action(int ID = 0)
         {
-            AdirondackChairActionViewModel model = new AdirondackChairActionViewModel();
+            ItemActionViewModel model = new ItemActionViewModel();
             if (ID != 0)
             {
-                var AdirondackChair = ItemServices.Instance.GetAdirondackChair(ID);
+                var AdirondackChair = ItemServices.Instance.GetItem(ID);
                 model.ID = AdirondackChair.ID;
                 model.Name = AdirondackChair.Name;
                 model.Font = AdirondackChair.Font;
@@ -40,11 +40,11 @@ namespace AesophWorks.Controllers
 
 
         [HttpPost]
-        public ActionResult Action(AdirondackChairActionViewModel model)
+        public ActionResult Action(ItemActionViewModel model)
         {
             if (model.ID != 0) //update record
             {
-                var AdirondackChair = ItemServices.Instance.GetAdirondackChair(model.ID);
+                var AdirondackChair = ItemServices.Instance.GetItem(model.ID);
 
                 AdirondackChair.ID = model.ID;
                 AdirondackChair.Name = model.Name;
@@ -55,7 +55,7 @@ namespace AesophWorks.Controllers
             }
             else
             {
-                var AdirondackChair = new AdirondackChair();
+                var AdirondackChair = new Item();
                 AdirondackChair.Name = model.Name;
                 AdirondackChair.Font = model.Font;
                 AdirondackChair.Customization = model.Customization;
@@ -67,21 +67,21 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Delete(int ID)
         {
-            AdirondackChairActionViewModel model = new AdirondackChairActionViewModel();
-            var AdirondackChair = ItemServices.Instance.GetAdirondackChair(ID);
+            ItemActionViewModel model = new ItemActionViewModel();
+            var AdirondackChair = ItemServices.Instance.GetItem(ID);
             model.ID = AdirondackChair.ID;
             model.Name = AdirondackChair.Name;
             return View("_Delete", model);
         }
 
         [HttpPost]
-        public ActionResult Delete(AdirondackChairActionViewModel model)
+        public ActionResult Delete(ItemActionViewModel model)
         {
 
             if (model.ID != 0) //we are trying to delete a record
             {
-                var AdirondackChair = ItemServices.Instance.GetAdirondackChair(model.ID);
-                ItemServices.Instance.DeleteAdirondackChair(AdirondackChair.ID);
+                var AdirondackChair = ItemServices.Instance.GetItem(model.ID);
+                ItemServices.Instance.DeleteItem(AdirondackChair.ID);
 
             }
             return RedirectToAction("AdirondackChairs", "Item");

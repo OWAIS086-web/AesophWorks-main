@@ -25,67 +25,64 @@ namespace AesophWorks.Controllers
         }
 
 
+        #region Listing
         public ActionResult CuttingBoard(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.Items = ItemServices.Instance.GetAllCuttingBoard(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllCuttingBoard(SearchTerm);
             return View(model);
         }
-
         public ActionResult ServingTrays(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.ServingTrays = ItemServices.Instance.GetAllServingTrays(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllServingTrays(SearchTerm);
             return View(model);
         }
-
         public ActionResult ChautericeBoard(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.ChautericeBoards = ItemServices.Instance.GetAllChautericeBoards(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllChautericeBoards(SearchTerm);
             return View(model);
         }
-
         public ActionResult Ornaments(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.Ornaments = ItemServices.Instance.GetAllOrnaments(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllOrnaments(SearchTerm);
             return View(model);
         }
-
         public ActionResult WeddingFavors(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.WeddingFavors = ItemServices.Instance.GetAllWeddingFavors(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllWeddingFavors(SearchTerm);
             return View(model);
         }
-
         public ActionResult Coasters(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.Coasters = ItemServices.Instance.GetAllCoasters(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllCoasters(SearchTerm);
             return View(model);
         }
-
         public ActionResult AdirondackChairs(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.AdirondackChairs = ItemServices.Instance.GetAllAdirondackChairs(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllAdirondackChairs(SearchTerm);
             return View(model);
         }
-
         public ActionResult CNCEngraving(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.CNCEngravings = ItemServices.Instance.GetAllCNCEngravings(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllCNCEngravings(SearchTerm);
             return View(model);
         }
-
         public ActionResult Knives(string SearchTerm)
         {
             ItemListingViewModel model = new ItemListingViewModel();
-            //model.Knives = ItemServices.Instance.GetAllKnives(SearchTerm);
+            model.Items = ItemServices.Instance.GetAllKnives(SearchTerm);
             return View(model);
         }
+
+        #endregion
+
+
     }
 }

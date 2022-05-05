@@ -20,10 +20,10 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Action(int ID = 0)
         {
-            CoasterActionViewModel model = new CoasterActionViewModel();
+            ItemActionViewModel model = new ItemActionViewModel();
             if (ID != 0)
             {
-                var Coaster = ItemServices.Instance.GetCoaster(ID);
+                var Coaster = ItemServices.Instance.GetItem(ID);
                 model.ID = Coaster.ID;
                 model.Name = Coaster.Name;
                 model.Font = Coaster.Font;
@@ -41,11 +41,11 @@ namespace AesophWorks.Controllers
 
 
         [HttpPost]
-        public ActionResult Action(CoasterActionViewModel model)
+        public ActionResult Action(ItemActionViewModel model)
         {
             if (model.ID != 0) //update record
             {
-                var Coaster = ItemServices.Instance.GetCoaster(model.ID);
+                var Coaster = ItemServices.Instance.GetItem(model.ID);
 
                 Coaster.ID = model.ID;
                 Coaster.Name = model.Name;
@@ -57,7 +57,7 @@ namespace AesophWorks.Controllers
             }
             else
             {
-                var Coaster = new Coasters();
+                var Coaster = new Item();
                 Coaster.Name = model.Name;
                 Coaster.Shape = model.Shape;
                 Coaster.Font = model.Font;
@@ -70,21 +70,21 @@ namespace AesophWorks.Controllers
         [HttpGet]
         public ActionResult Delete(int ID)
         {
-            CoasterActionViewModel model = new CoasterActionViewModel();
-            var Coaster = ItemServices.Instance.GetCoaster(ID);
+            ItemActionViewModel model = new ItemActionViewModel();
+            var Coaster = ItemServices.Instance.GetItem(ID);
             model.ID = Coaster.ID;
             model.Name = Coaster.Name;
             return View("_Delete", model);
         }
 
         [HttpPost]
-        public ActionResult Delete(CoasterActionViewModel model)
+        public ActionResult Delete(ItemActionViewModel model)
         {
 
             if (model.ID != 0) //we are trying to delete a record
             {
-                var Coaster = ItemServices.Instance.GetCoaster(model.ID);
-                ItemServices.Instance.DeleteCoaster(Coaster.ID);
+                var Coaster = ItemServices.Instance.GetItem(model.ID);
+                ItemServices.Instance.DeleteItem(Coaster.ID);
 
             }
             return RedirectToAction("Coasters", "Item");
