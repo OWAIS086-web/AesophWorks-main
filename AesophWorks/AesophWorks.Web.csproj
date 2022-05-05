@@ -139,10 +139,12 @@
     <Compile Include="Controllers\OrnamentController.cs" />
     <Compile Include="Controllers\ServingTrayController.cs" />
     <Compile Include="Controllers\WeddingFavorController.cs" />
+    <Compile Include="Controllers\WoodTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ItemDataViewModel.cs" />
     <Compile Include="ViewModels\ItemListingViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
@@ -1337,6 +1339,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\WoodType\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

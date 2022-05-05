@@ -1,23 +1,15 @@
-﻿using AesophWorks.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AesophWorks.ViewModels
+namespace AesophWorks.Entities
 {
-    public class ItemListingViewModel
+    public class Item:BaseEntity
     {
-        public List<Item> Items { get; set; }
-
-        public string SearchTerm { get; set; }
-    }
-
-    public class ItemActionViewModel
-    {
-        public string Name { get; set; }
-        public int ID { get; set; }
         public bool JuiceGroove { get; set; }
+        public string ItemType { get; set; }
         public string Type { get; set; }
         public bool FingerGroove { get; set; }
         public bool Handles { get; set; }
@@ -29,8 +21,4 @@ namespace AesophWorks.ViewModels
         public bool GiftBox { get; set; }
         public string Hanger { get; set; }
     }
-
-  
-
-
 }

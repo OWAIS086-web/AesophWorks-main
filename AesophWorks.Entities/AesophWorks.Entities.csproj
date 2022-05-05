@@ -42,24 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accent.cs" />
-    <Compile Include="AdirondackChair.cs" />
     <Compile Include="BaseEntity.cs" />
-    <Compile Include="ChautericeBoard.cs" />
-    <Compile Include="CNCEngraving.cs" />
-    <Compile Include="Coasters.cs" />
     <Compile Include="CutterButter.cs" />
-    <Compile Include="CuttingBoard.cs" />
     <Compile Include="Feet.cs" />
     <Compile Include="Inlay.cs" />
-    <Compile Include="Knives.cs" />
-    <Compile Include="Ornaments.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServingTrays.cs" />
     <Compile Include="SharedEntity.cs" />
     <Compile Include="Size.cs" />
     <Compile Include="OrderType.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="WeddingFavor.cs" />
     <Compile Include="WoodType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,7 +9,6 @@ namespace AesophWorks.Entities
     public class SharedEntity:BaseEntity
     {
         public int ItemID { get; set; }
-        public string Name { get; set; }
         public string Price { get; set; }
       
     }

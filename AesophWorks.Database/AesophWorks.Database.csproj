@@ -72,6 +72,14 @@
     <Compile Include="Migrations\202205041516167_nameaddedbaseentity.designer.cs">
       <DependentUpon>202205041516167_nameaddedbaseentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205051412276_DatabaseConserved.cs" />
+    <Compile Include="Migrations\202205051412276_DatabaseConserved.designer.cs">
+      <DependentUpon>202205051412276_DatabaseConserved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205051414374_ItemsAdded.cs" />
+    <Compile Include="Migrations\202205051414374_ItemsAdded.designer.cs">
+      <DependentUpon>202205051414374_ItemsAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205041516167_nameaddedbaseentity.resx">
       <DependentUpon>202205041516167_nameaddedbaseentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205051412276_DatabaseConserved.resx">
+      <DependentUpon>202205051412276_DatabaseConserved.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205051414374_ItemsAdded.resx">
+      <DependentUpon>202205051414374_ItemsAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
