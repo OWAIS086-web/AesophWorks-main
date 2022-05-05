@@ -1,0 +1,116 @@
+﻿@model AesophWorks.ViewModels.ChautericeBoardActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit Chauterice Board</span>
+                }
+                else
+                {
+                    <span>Save Chauterice Board</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Chauterice Board</label>
+                            <input required class="form-control" id="Name" value="@Model.Name" name="Name" placeholder="Enter Name">
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-5">Type of Chauterice Board</label>
+                            <input required class="form-control" id="TypeOfChautericeBoard" value="@Model.TypeOfChautericeBoard" name="TypeOfChautericeBoard" placeholder="Enter Type Of Chauterice Board">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-5">
+                    <label class="col-sm-3">Handles</label>
+                    @if (Model.ID != 0)
+                    {
+                        <select id="Handles" class="select2 form-select shadow-none select2-hidden-accessible" name="Handles">
+                            @if (Model.Handles == true)
+                            {
+                                <option selected value="true">Yes</option>
+                                <option value="false">No</option>
+                            }
+                            else
+                            {
+                                <option value="true">Yes</option>
+                                <option selected value="false">No</option>
+                            }
+                        </select>
+                    }
+                    else
+                    {
+                        <select id="Handles" class="select2 form-select shadow-none select2-hidden-accessible" name="Handles">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+
+                        </select>
+                    }
+
+                </div>
+                <div class="form-group col-md-5">
+                    <label class="col-sm-3">Type</label>
+                    <input required class="form-control" id="Type" value="@Model.Type" name="Type" placeholder="Enter Type">
+
+                </div>
+
+
+
+
+
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("ChautericeBoard","Item")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "ChautericeBoard")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("ChautericeBoard","Item")";
+
+		});
+	});
+</script>

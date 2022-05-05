@@ -62,7 +62,7 @@ namespace AesophWorks.Controllers
                 ServingTray.Type = model.Type;
                 ItemServices.Instance.SaveItem(ServingTray);
             }
-            return RedirectToAction("ServingTray", "Item");
+            return RedirectToAction("ServingTrays", "Item");
         }
 
         [HttpGet]
@@ -86,7 +86,7 @@ namespace AesophWorks.Controllers
                 ItemServices.Instance.DeleteServingTray(ServingTray.ID);
 
             }
-            return RedirectToAction("ServingTray", "Item");
+            return RedirectToAction("ServingTrays", "Item");
 
         }
     }

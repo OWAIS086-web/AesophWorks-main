@@ -1,11 +1,11 @@
-﻿@model AesophWorks.ViewModels.CuttingBoardActionViewModel
+﻿@model AesophWorks.ViewModels.KniveActionViewModel
 
 @if (Model != null)
 {
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">
-                <span>Delete Cutting Board</span>
+                <span>Delete Knive</span>
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -16,7 +16,7 @@
                 <input type="hidden" name="ID" value="@Model.ID" />
             </form>
             <div class="alert alert-danger" role="alert">
-                Are you sure you want to delete this Cutting Board : @Model.Name?
+                Are you sure you want to delete this Knive : @Model.Name?
             </div>
         </div>
         <div class="modal-footer">
@@ -29,13 +29,13 @@
 <script>
 	$("#actionButton").click(function () {
 		$.ajax({
-			url: '@Url.Action("Delete", "CuttingBoard")',
+			url: '@Url.Action("Delete", "Knive")',
 			type: "post",
 			data: $("#actionForm").serialize()
 		})
 		.done(function () {
 
-            window.location.href = "@Url.Action("CuttingBoard","Item")";
+            window.location.href = "@Url.Action("Knives","Item")";
 
 		});
 	});

@@ -61,9 +61,10 @@ namespace AesophWorks.Controllers
                 Coaster.Name = model.Name;
                 Coaster.Shape = model.Shape;
                 Coaster.Font = model.Font;
+                Coaster.Customization = model.Customization;
                 ItemServices.Instance.SaveItem(Coaster);
             }
-            return RedirectToAction("Coaster", "Item");
+            return RedirectToAction("Coasters", "Item");
         }
 
         [HttpGet]
@@ -86,7 +87,7 @@ namespace AesophWorks.Controllers
                 ItemServices.Instance.DeleteCoaster(Coaster.ID);
 
             }
-            return RedirectToAction("Coaster", "Item");
+            return RedirectToAction("Coasters", "Item");
 
         }
     }

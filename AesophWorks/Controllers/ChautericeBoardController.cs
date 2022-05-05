@@ -27,6 +27,7 @@ namespace AesophWorks.Controllers
                 model.ID = ChautericeBoard.ID;
                 model.Name = ChautericeBoard.Name;
                 model.Handles = ChautericeBoard.Handles;
+                model.Type = ChautericeBoard.Type;
                 model.TypeOfChautericeBoard = ChautericeBoard.TypeOfChautericeBoard;
                 return PartialView("Action", model);
 
@@ -50,6 +51,7 @@ namespace AesophWorks.Controllers
                 ChautericeBoard.Name = model.Name;
                 ChautericeBoard.TypeOfChautericeBoard = model.TypeOfChautericeBoard;
                 ChautericeBoard.Handles = model.Handles;
+                ChautericeBoard.Type = model.Type;
                 ItemServices.Instance.UpdateItem(ChautericeBoard);
 
             }

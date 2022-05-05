@@ -127,13 +127,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdirondackChairController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ChautericeBoardController.cs" />
+    <Compile Include="Controllers\CNCEngravingController.cs" />
     <Compile Include="Controllers\CoasterController.cs" />
     <Compile Include="Controllers\CuttingBoardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\KniveController.cs" />
+    <Compile Include="Controllers\OrnamentController.cs" />
     <Compile Include="Controllers\ServingTrayController.cs" />
+    <Compile Include="Controllers\WeddingFavorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1304,13 +1309,34 @@
     <Content Include="Views\CuttingBoard\Action.cshtml" />
     <Content Include="Views\Item\_CuttingBoardListing.cshtml" />
     <Content Include="Views\CuttingBoard\_Delete.cshtml" />
+    <Content Include="Views\Item\_AdirondackChairListing.cshtml" />
+    <Content Include="Views\Item\_ChautericeBoardListing.cshtml" />
+    <Content Include="Views\Item\_CNCEngravingListing.cshtml" />
+    <Content Include="Views\Item\_CoasterListing.cshtml" />
+    <Content Include="Views\Item\_KnivesListing.cshtml" />
+    <Content Include="Views\Item\_OrnamentsListing.cshtml" />
+    <Content Include="Views\Item\_ServingTraysListing.cshtml" />
+    <Content Include="Views\Item\_WeddingFavorsListing.cshtml" />
+    <Content Include="Views\AdirondackChair\Action.cshtml" />
+    <Content Include="Views\AdirondackChair\_Delete.cshtml" />
+    <Content Include="Views\ChautericeBoard\Action.cshtml" />
+    <Content Include="Views\ChautericeBoard\_Delete.cshtml" />
+    <Content Include="Views\CNCEngraving\Action.cshtml" />
+    <Content Include="Views\CNCEngraving\_Delete.cshtml" />
+    <Content Include="Views\Coaster\Action.cshtml" />
+    <Content Include="Views\Coaster\_Delete.cshtml" />
+    <Content Include="Views\Knive\Action.cshtml" />
+    <Content Include="Views\Knive\_Delete.cshtml" />
+    <Content Include="Views\Ornament\Action.cshtml" />
+    <Content Include="Views\Ornament\_Delete.cshtml" />
+    <Content Include="Views\ServingTray\Action.cshtml" />
+    <Content Include="Views\ServingTray\_Delete.cshtml" />
+    <Content Include="Views\WeddingFavor\Action.cshtml" />
+    <Content Include="Views\WeddingFavor\_Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\ChautericeBoard\" />
-    <Folder Include="Views\Coaster\" />
-    <Folder Include="Views\ServingTray\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

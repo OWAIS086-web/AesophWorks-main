@@ -46,14 +46,18 @@ namespace AesophWorks.Controllers
             return View(model);
         }
 
-        public ActionResult Ornaments()
+        public ActionResult Ornaments(string SearchTerm)
         {
-            return View();
+            OrnamentListingViewModel model = new OrnamentListingViewModel();
+            model.Ornaments = ItemServices.Instance.GetAllOrnaments(SearchTerm);
+            return View(model);
         }
 
-        public ActionResult WeddingFavors()
+        public ActionResult WeddingFavors(string SearchTerm)
         {
-            return View();
+            WeddingFavorListingViewModel model = new WeddingFavorListingViewModel();
+            model.WeddingFavors = ItemServices.Instance.GetAllWeddingFavors(SearchTerm);
+            return View(model);
         }
 
         public ActionResult Coasters(string SearchTerm)
@@ -63,19 +67,25 @@ namespace AesophWorks.Controllers
             return View(model);
         }
 
-        public ActionResult AdirondackChairs()
+        public ActionResult AdirondackChairs(string SearchTerm)
         {
-            return View();
+            AdirondackChairListingViewModel model = new AdirondackChairListingViewModel();
+            model.AdirondackChairs = ItemServices.Instance.GetAllAdirondackChairs(SearchTerm);
+            return View(model);
         }
 
-        public ActionResult CNCEngraving()
+        public ActionResult CNCEngraving(string SearchTerm)
         {
-            return View();
+            CNCEngravingListingViewModel model = new CNCEngravingListingViewModel();
+            model.CNCEngravings = ItemServices.Instance.GetAllCNCEngravings(SearchTerm);
+            return View(model);
         }
 
-        public ActionResult Knives()
+        public ActionResult Knives(string SearchTerm)
         {
-            return View();
+            KniveListingViewModel model = new KniveListingViewModel();
+            model.Knives = ItemServices.Instance.GetAllKnives(SearchTerm);
+            return View(model);
         }
     }
 }

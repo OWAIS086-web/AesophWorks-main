@@ -78,4 +78,85 @@ namespace AesophWorks.ViewModels
         public string Font { get; set; }
         public string  Customization { get; set; }
     }
+
+    public class OrnamentListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<Ornaments> Ornaments { get; set; }
+    }
+
+    public class OrnamentActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Hanger { get; set; }
+        public string Shape { get; set; }
+        public string Font { get; set; }
+        public string Customization { get; set; }
+    }
+
+
+    public class KniveListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<Knives> Knives { get; set; }
+    }
+
+    public class KniveActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string TypeOfKnives { get; set; }
+        public string TypeOfKnivesOrder { get; set; }
+        public bool GiftBox { get; set; }
+        public bool Handles { get; set; }
+    }
+
+    public class WeddingFavorListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<WeddingFavor> WeddingFavors { get; set; }
+    }
+
+    public class WeddingFavorActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string TypeOfWeddingFavor { get; set; }
+        public bool Handles { get; set; }
+    }
+
+
+    public class AdirondackChairListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<AdirondackChair> AdirondackChairs { get; set; }
+    }
+
+    public class AdirondackChairActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Font { get; set; }
+        public string Customization { get; set; }
+    }
+
+
+    public class CNCEngravingListingViewModel
+    {
+        public string SearchTerm { get; set; }
+        public List<CNCEngraving> CNCEngravings { get; set; }
+    }
+
+    public class CNCEngravingActionViewModel
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Quantity { get; set; }
+        public string Font { get; set; }
+        public string Customization { get; set; }
+    }
+
+
+
 }

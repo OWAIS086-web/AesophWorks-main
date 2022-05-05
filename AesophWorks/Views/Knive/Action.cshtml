@@ -1,0 +1,119 @@
+﻿@model AesophWorks.ViewModels.KniveActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit Knive</span>
+                }
+                else
+                {
+                    <span>Save Knive</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Knive</label>
+                            <input required class="form-control" id="Name" value="@Model.Name" name="Name" placeholder="Enter Name">
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="form-group col-md-5">
+                    <label class="col-sm-3">Gift Box</label>
+                    @if (Model.ID != 0)
+                    {
+                        <select id="GiftBox" class="select2 form-select shadow-none select2-hidden-accessible" name="GiftBox">
+                            @if (Model.GiftBox == true)
+                            {
+                                <option selected value="true">Yes</option>
+                                <option value="false">No</option>
+                            }
+                            else
+                            {
+                                <option value="true">Yes</option>
+                                <option selected value="false">No</option>
+                            }
+                        </select>
+                    }
+                    else
+                    {
+                        <select id="GiftBox" class="select2 form-select shadow-none select2-hidden-accessible" name="GiftBox">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+
+                        </select>
+                    }
+                </div>
+
+
+
+                <div class="form-group col-md-5">
+                    <label class="col-sm-3">Type of Knives Order</label>
+                    <input required class="form-control" id="TypeOfKnivesOrder" value="@Model.TypeOfKnivesOrder" name="TypeOfKnivesOrder" placeholder="Enter TypeOfKnivesOrder">
+
+                </div>
+
+                <div class="form-group col-md-5">
+                    <label class="col-sm-3">Type of Knive</label>
+                    <input required class="form-control" id="TypeOfKnives" value="@Model.TypeOfKnives" name="TypeOfKnives" placeholder="Enter TypeOfKnives">
+
+                </div>
+
+
+
+
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Knive","Item")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "Knive")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Knives","Item")";
+
+		});
+	});
+</script>
