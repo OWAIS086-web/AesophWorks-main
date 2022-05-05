@@ -64,7 +64,7 @@
                 {
                     <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
                 }
-                <a href="@Url.Action("Coaster","Item")" class="btn btn-outline-danger"> CANCEL</a>
+                <a href="@Url.Action("Coasters","Item")" class="btn btn-outline-danger"> CANCEL</a>
             </form>
         </div>
     </div>
@@ -90,7 +90,7 @@
 		})
 		.done(function () {
 
-            window.location.href = "@Url.Action("Coaster","Item")";
+            window.location.href = "@Url.Action("Coasters","Item")";
 
 		});
 	});
