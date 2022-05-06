@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace AesophWorks.Entities
 {
-    public class OrderType:SharedEntity
+    public class ItemType:SharedEntity
     {
+
     }
 }

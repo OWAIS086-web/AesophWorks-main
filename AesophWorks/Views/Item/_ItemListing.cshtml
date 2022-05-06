@@ -1,0 +1,92 @@
+﻿@model AesophWorks.ViewModels.ItemListingViewModel
+
+@{
+    ViewBag.Title = "_ItemListing";
+}
+<div class="row">
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        @if (Model.Items.Count() != 0)
+        {
+        <div class="card">
+          
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+
+                            <th>Name</th>
+                            <th>Juice Groove</th>
+                            <th>Type</th>
+                            <th>Finger Groove</th>
+                            <th>Handles</th>
+                            <th>Name</th>
+                            <th>Font</th>
+                            <th>Customization</th>
+                            <th>Quantity</th>
+                            <th>Shape</th>
+                            <th>Type of Order</th>
+                            <th>Gift Box</th>
+                            <th>Hanger</th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.JuiceGroove</td>
+                            <td>@item.FingerGroove</td>
+                            <td>@item.Handles</td>
+                            <td>@item.Name</td>
+                            <td>@item.Font</td>
+                            <td>@item.Customization</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Shape</td>
+                            <td>@item.TypeOfOrder</td>
+                            <td>@item.GiftBox</td>
+                            <td>@item.Hanger</td>
+
+                            <td>
+                                <button data-id="@item.ID" type="button" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</button>
+                                <a href="@Url.Action("Delete", "AdirondackChair", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</a>
+
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        }
+        else
+        {
+
+            <div class="alert alert-warning col-md-12" role="alert">
+                Sorry! No records exist.
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $(".btnEdit").click(function () {
+        $.ajax({
+            url: '@Url.Action("Action", "AdirondackChair")',
+            type: "GET",
+            data: {ID: $(this).attr("data-id") }
+        })
+            .done(function (oData) {
+                $("#actionContainer").html(oData);
+            })
+            .error(function (error) {
+                alert(error);
+            })
+    })
+
+
+
+</script>

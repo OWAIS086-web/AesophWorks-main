@@ -10,7 +10,6 @@ namespace AesophWorks.ViewModels
     {
         public List<Accent> Accents { get; set; }
         public string SearchTerm { get; set; }
-        public List<Item> Items { get; set; }
     }
     public class AccentActionViewModel
     {
@@ -18,6 +17,8 @@ namespace AesophWorks.ViewModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
+        public List<Item> Items { get; set; }
+
     }
 
 
@@ -26,7 +27,6 @@ namespace AesophWorks.ViewModels
     {
         public List<Inlay> Inlays { get; set; }
         public string SearchTerm { get; set; }
-        public List<Item> Items { get; set; }
     }
     public class InlayActionViewModel
     {
@@ -36,6 +36,8 @@ namespace AesophWorks.ViewModels
         public string Price { get; set; }
         public string InlaySpecs { get; set; }
         public string InlayTextStyle { get; set; }
+        public List<Item> Items { get; set; }
+
     }
 
 
@@ -44,7 +46,6 @@ namespace AesophWorks.ViewModels
     {
         public List<CutterButter> CutterButters { get; set; }
         public string SearchTerm { get; set; }
-        public List<Item> Items { get; set; }
     }
     public class CutterButterActionViewModel
     {
@@ -52,6 +53,8 @@ namespace AesophWorks.ViewModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
+        public List<Item> Items { get; set; }
+
     }
 
 
@@ -60,7 +63,6 @@ namespace AesophWorks.ViewModels
     {
         public List<Feet> Feets { get; set; }
         public string SearchTerm { get; set; }
-        public List<Item> Items { get; set; }
     }
     public class FeetActionViewModel
     {
@@ -68,6 +70,8 @@ namespace AesophWorks.ViewModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
+        public List<Item> Items { get; set; }
+
     }
 
 
@@ -77,7 +81,6 @@ namespace AesophWorks.ViewModels
     {
         public List<Size> Sizes { get; set; }
         public string SearchTerm { get; set; }
-        public List<Item> Items { get; set; }
     }
     public class SizeActionViewModel
     {
@@ -85,13 +88,14 @@ namespace AesophWorks.ViewModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
+        public List<Item> Items { get; set; }
+
     }
 
     public class WoodTypeListingViewModel
     {
         public List<WoodType> WoodTypes { get; set; }
         public string SearchTerm { get; set; }
-        public List<Item> Items { get; set; }
     }
     public class WoodTypeActionViewModel
     {
@@ -99,6 +103,7 @@ namespace AesophWorks.ViewModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
+        public List<Item> Items { get; set; }
     }
 
 
@@ -106,9 +111,8 @@ namespace AesophWorks.ViewModels
 
     public class OrderTypeListingViewModel
     {
-        public List<OrderType> OrderTypes { get; set; }
+        public List<ItemType> OrderTypes { get; set; }
         public string SearchTerm { get; set; }
-        public List<Item> Items { get; set; }
     }
     public class OrderTypeActionViewModel
     {
@@ -116,6 +120,8 @@ namespace AesophWorks.ViewModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
+        public List<Item> Items { get; set; }
+
     }
 
 

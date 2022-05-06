@@ -10,7 +10,6 @@ namespace AesophWorks.Entities
     {
         public bool JuiceGroove { get; set; }
         public string ItemType { get; set; }
-        public string Type { get; set; }
         public bool FingerGroove { get; set; }
         public bool Handles { get; set; }
         public string Font { get; set; }

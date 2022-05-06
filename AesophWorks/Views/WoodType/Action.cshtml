@@ -1,0 +1,106 @@
+﻿@model AesophWorks.ViewModels.WoodTypeActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit Wood Type</span>
+                }
+                else
+                {
+                    <span>Save Wood Type</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Wood Type</label>
+                            <input required class="form-control" id="Name" value="@Model.Name" name="Name" placeholder="Enter Name">
+                        </div>
+
+                        @if (Model.ID != 0)
+                        {
+                            <select id="ItemID" class="select2 form-select shadow-none select2-hidden-accessible" name="ItemID">
+                                @foreach (var item in Model.Items)
+                                {
+                                    if (item.ID == Model.ItemID)
+                                    {
+                                        <option selected value="@item.ID">@item.Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.ID">@item.Name</option>
+                                    }
+                                }
+                            </select>
+                        }
+                        else
+                        {
+                            <select id="ItemID" class="select2 form-select shadow-none select2-hidden-accessible" name="ItemID">
+                                @foreach (var item in Model.Items)
+                                {
+                                    <option value="@item.ID">@item.Name</option>
+
+                                }
+                            </select>
+                        }
+
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-3">Price</label>
+                            <input required class="form-control" id="Font" value="@Model.Price" name="Price" placeholder="Enter Price">
+
+
+                        </div>
+                    </div>
+                </div>        
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Index","WoodType")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "WoodType")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index","WoodType")";
+
+		});
+	});
+</script>

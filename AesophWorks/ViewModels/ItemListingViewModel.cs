@@ -15,11 +15,11 @@ namespace AesophWorks.ViewModels
 
     public class ItemActionViewModel
     {
-        public string Name { get; set; }
         public int ID { get; set; }
+        public string Name { get; set; }
         public bool JuiceGroove { get; set; }
-        public string Type { get; set; }
         public bool FingerGroove { get; set; }
+        public string ItemType { get; set; }
         public bool Handles { get; set; }
         public string Font { get; set; }
         public string Customization { get; set; }
@@ -27,7 +27,9 @@ namespace AesophWorks.ViewModels
         public string Shape { get; set; }
         public string TypeOfOrder { get; set; }
         public bool GiftBox { get; set; }
+        public List<string> ItemTypes { get; set; }
         public string Hanger { get; set; }
+        
     }
 
   

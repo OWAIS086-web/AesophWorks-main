@@ -80,6 +80,14 @@
     <Compile Include="Migrations\202205051414374_ItemsAdded.designer.cs">
       <DependentUpon>202205051414374_ItemsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205060646552_ItemTypeRenamed.cs" />
+    <Compile Include="Migrations\202205060646552_ItemTypeRenamed.designer.cs">
+      <DependentUpon>202205060646552_ItemTypeRenamed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205060648271_typefixes.cs" />
+    <Compile Include="Migrations\202205060648271_typefixes.designer.cs">
+      <DependentUpon>202205060648271_typefixes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,6 +122,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205051414374_ItemsAdded.resx">
       <DependentUpon>202205051414374_ItemsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205060646552_ItemTypeRenamed.resx">
+      <DependentUpon>202205060646552_ItemTypeRenamed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205060648271_typefixes.resx">
+      <DependentUpon>202205060648271_typefixes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

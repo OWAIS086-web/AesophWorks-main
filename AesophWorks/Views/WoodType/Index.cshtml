@@ -1,8 +1,11 @@
-﻿@model AesophWorks.ViewModels.WeddingFavorListingViewModel
+﻿@model AesophWorks.ViewModels.WoodTypeListingViewModel
+@{
+    ViewBag.Title = "Index";
+}
 
 <div class="card">
     <div class="card-body">
-        <h2>Wedding Favors</h2>
+        <h2 class="card-title">Wood Types</h2>
         <hr />
 
 
@@ -10,12 +13,12 @@
             <div class="col-md-6 col-lg-2 col-xlg-3">
                 <div class="card card-hover">
                     <div class="box bg-cyan text-center">
-                        <a href="@Url.Action("Index","Item")">
+                        <a href="@Url.Action("Dashboard","Admin")">
 
                             <h1 class="font-light text-white">
                                 <i class="mdi mdi-keyboard-return"></i>
                             </h1>
-                            <h6 class="text-white">Back to Items Screen</h6>
+                            <h6 class="text-white">Back to Dashboard</h6>
                         </a>
                     </div>
                 </div>
@@ -24,7 +27,7 @@
             <div class="col-md-6 col-lg-2 col-xlg-3">
                 <div class="card card-hover">
                     <div class="box bg-info text-center">
-                        <a href="@Url.Action("Action","WeddingFavor")">
+                        <a href="@Url.Action("Action","WoodType")">
 
                             <h1 class="font-light text-white">
                                 <i class="mdi mdi-plus"></i>
@@ -38,7 +41,7 @@
             <div class="col-md-6 col-lg-2 col-xlg-3">
                 <div class="card card-hover">
                     <div class="box bg-danger text-center">
-                        <a href="@Url.Action("WeddingFavors","Item")">
+                        <a href="@Url.Action("Index","WoodType")">
 
                             <h1 class="font-light text-white">
                                 <i class="mdi mdi-restart"></i>
@@ -65,10 +68,11 @@
             <div class="col col-lg-12">
                 <div id="actionContainer">
                     @{
-                        Html.RenderPartial("_WeddingFavorsListing", Model);
+                        Html.RenderPartial("_Listing", Model);
                     }
                 </div>
             </div>
         </div>
     </div>
 </div>
+

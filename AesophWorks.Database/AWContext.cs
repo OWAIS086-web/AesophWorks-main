@@ -21,7 +21,7 @@ namespace AesophWorks.Database
         public DbSet<Feet> Feets { get; set; }
         public DbSet<Inlay> Inlays { get; set; }
         public DbSet<Item> Items { get; set; }
-        public DbSet<OrderType> OrderTypes { get; set; }
+        public DbSet<ItemType> ItemTypes { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<WoodType> WoodTypes { get; set; }

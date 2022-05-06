@@ -27,151 +27,22 @@ namespace AesophWorks.Services
         #endregion
 
         #region ListingIems
-        public List<Item> GetAllCuttingBoard(string SearchTerm)
+        public List<Item> GetAllItems(string SearchTerm)
         {
-
             using (var context = new AWContext())
             {
                 if (SearchTerm != null)
                 {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Cutting Board").ToList();
+                    return context.Items.Where(x => x.Name.Contains(SearchTerm)).ToList();
                 }
                 else
                 {
-                    return context.Items.Where(x => x.ItemType == "Cutting Board").ToList();
+                    return context.Items.ToList();
                 }
             }
         }
 
-        public List<Item> GetAllServingTrays(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Serving Trays").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "Serving Trays").ToList();
-                }
-            }
-        }
-
-        public List<Item> GetAllChautericeBoards(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Chauterice Boards").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "Chauterice Boards").ToList();
-                }
-            }
-        }
-
-        public List<Item> GetAllOrnaments(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Ornaments").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "Ornaments").ToList();
-                }
-            }
-        }
-
-        public List<Item> GetAllCoasters(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Coasters").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "Coasters").ToList();
-                }
-            }
-        }
-
-        public List<Item> GetAllAdirondackChairs(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Adirondack Chairs").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "Adirondack Chairs").ToList();
-                }
-            }
-        }
-
-
-        public List<Item> GetAllCNCEngravings(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "CNC Engraving").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "CNC Engraving").ToList();
-                }
-            }
-        }
-
-        public List<Item> GetAllKnives(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Knives").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "Knives").ToList();
-                }
-            }
-        }
-
-
-        public List<Item> GetAllWeddingFavors(string SearchTerm)
-        {
-
-            using (var context = new AWContext())
-            {
-                if (SearchTerm != null)
-                {
-                    return context.Items.Where(x => x.Name.Contains(SearchTerm) && x.ItemType == "Wedding Favors").ToList();
-                }
-                else
-                {
-                    return context.Items.Where(x => x.ItemType == "Wedding Favors").ToList();
-                }
-            }
-        }
+     
 
 
 
