@@ -88,6 +88,10 @@
     <Compile Include="Migrations\202205060648271_typefixes.designer.cs">
       <DependentUpon>202205060648271_typefixes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205061143379_moresimplifieditem.cs" />
+    <Compile Include="Migrations\202205061143379_moresimplifieditem.designer.cs">
+      <DependentUpon>202205061143379_moresimplifieditem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -128,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205060648271_typefixes.resx">
       <DependentUpon>202205060648271_typefixes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205061143379_moresimplifieditem.resx">
+      <DependentUpon>202205061143379_moresimplifieditem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

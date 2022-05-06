@@ -16,18 +16,7 @@
                         <tr>
 
                             <th>Name</th>
-                            <th>Juice Groove</th>
-                            <th>Type</th>
-                            <th>Finger Groove</th>
-                            <th>Handles</th>
-                            <th>Name</th>
-                            <th>Font</th>
-                            <th>Customization</th>
-                            <th>Quantity</th>
-                            <th>Shape</th>
-                            <th>Type of Order</th>
-                            <th>Gift Box</th>
-                            <th>Hanger</th>
+                            <th>Item Type</th>
                             <th>
                                 Action
                             </th>
@@ -38,21 +27,13 @@
                         {
                         <tr>
                             <td>@item.Name</td>
-                            <td>@item.JuiceGroove</td>
-                            <td>@item.FingerGroove</td>
-                            <td>@item.Handles</td>
-                            <td>@item.Name</td>
-                            <td>@item.Font</td>
-                            <td>@item.Customization</td>
-                            <td>@item.Quantity</td>
-                            <td>@item.Shape</td>
-                            <td>@item.TypeOfOrder</td>
-                            <td>@item.GiftBox</td>
-                            <td>@item.Hanger</td>
+                  
+                            <td>@item.ItemType</td>
+             
 
                             <td>
                                 <button data-id="@item.ID" type="button" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</button>
-                                <a href="@Url.Action("Delete", "AdirondackChair", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</a>
+                                <a href="@Url.Action("Delete", "Item", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</a>
 
                             </td>
                         </tr>
@@ -75,7 +56,7 @@
 <script>
     $(".btnEdit").click(function () {
         $.ajax({
-            url: '@Url.Action("Action", "AdirondackChair")',
+            url: '@Url.Action("Action", "Item")',
             type: "GET",
             data: {ID: $(this).attr("data-id") }
         })

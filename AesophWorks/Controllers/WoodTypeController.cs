@@ -15,7 +15,15 @@ namespace AesophWorks.Controllers
         public ActionResult Index(string SearchTerm)
         {
             WoodTypeListingViewModel model = new WoodTypeListingViewModel();
-            model.WoodTypes = ItemDataServices.Instance.GetAllWoodTypes(SearchTerm);
+            var WoodTypeLsit = ItemDataServices.Instance.GetAllWoodTypes(SearchTerm);
+            List<MyList> myList = new List<MyList>();
+
+            foreach (var item in WoodTypeLsit)
+            {
+                var Item = ItemServices.Instance.GetItem(item.ItemID);
+                myList.Add(new MyList { ID = item.ID, ItemID = item.ItemID, Item = Item, Name = item.Name, Price = item.Price });
+            }
+            model.MyLists = myList; 
             return View(model);
         }
 
@@ -65,7 +73,7 @@ namespace AesophWorks.Controllers
                 WoodType.Price = model.Price;
                 ItemDataServices.Instance.SaveWoodType(WoodType);
             }
-            return RedirectToAction("WoodType", "Item");
+            return RedirectToAction("Index", "WoodType");
         }
 
         [HttpGet]
@@ -89,7 +97,7 @@ namespace AesophWorks.Controllers
                 ItemDataServices.Instance.DeleteWoodType(WoodType.ID);
 
             }
-            return RedirectToAction("WoodType", "Item");
+            return RedirectToAction("Index", "WoodType");
 
         }
     }

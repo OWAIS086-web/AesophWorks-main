@@ -127,9 +127,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccentController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CutterButterController.cs" />
+    <Compile Include="Controllers\FeetController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InlayController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Controllers\WoodTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1297,10 +1302,27 @@
     <Content Include="Views\WoodType\_Listing.cshtml" />
     <Content Include="Views\Item\Action.cshtml" />
     <Content Include="Views\Item\_Delete.cshtml" />
+    <Content Include="Views\Size\_Delete.cshtml" />
+    <Content Include="Views\Size\_Listing.cshtml" />
+    <Content Include="Views\Size\Action.cshtml" />
+    <Content Include="Views\Size\Index.cshtml" />
+    <Content Include="Views\Inlay\_Delete.cshtml" />
+    <Content Include="Views\Inlay\_Listing.cshtml" />
+    <Content Include="Views\Inlay\Action.cshtml" />
+    <Content Include="Views\Inlay\Index.cshtml" />
+    <Content Include="Views\CutterButter\_Delete.cshtml" />
+    <Content Include="Views\CutterButter\_Listing.cshtml" />
+    <Content Include="Views\CutterButter\Action.cshtml" />
+    <Content Include="Views\CutterButter\Index.cshtml" />
+    <Content Include="Views\Feet\_Delete.cshtml" />
+    <Content Include="Views\Feet\_Listing.cshtml" />
+    <Content Include="Views\Feet\Action.cshtml" />
+    <Content Include="Views\Feet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Accent\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

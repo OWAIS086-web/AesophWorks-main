@@ -42,17 +42,8 @@ namespace AesophWorks.Controllers
                 var item = ItemServices.Instance.GetItem(ID);
                 model.ID = item.ID;
                 model.Name = item.Name;
-                model.Customization = item.Customization;
-                model.FingerGroove = item.FingerGroove;
-                model.JuiceGroove = item.JuiceGroove;
-                model.Quantity = item.Quantity;
-                model.Shape = item.Shape;
                 model.ItemType = item.ItemType;
-                model.TypeOfOrder = item.TypeOfOrder;
-                model.Handles = item.Handles;
-                model.Hanger = item.Hanger;
-                model.Font = item.Font;
-                model.GiftBox = item.GiftBox;
+              
                 return PartialView("Action", model);
 
             }
@@ -73,17 +64,8 @@ namespace AesophWorks.Controllers
 
                 item.ID = model.ID;
                 item.Name = model.Name;
-                item.Customization = model.Customization;
-                item.FingerGroove = model.FingerGroove;
-                item.JuiceGroove = model.JuiceGroove;
-                item.Quantity = model.Quantity;
-                item.Shape = model.Shape;
                 item.ItemType = model.ItemType;
-                item.TypeOfOrder = model.TypeOfOrder;
-                item.Handles = model.Handles;
-                item.Hanger = model.Hanger;
-                item.Font = model.Font;
-                item.GiftBox = model.GiftBox;
+                
                 ItemServices.Instance.UpdateItem(item);
 
             }
@@ -91,17 +73,8 @@ namespace AesophWorks.Controllers
             {
                 var item = new Item();
                 item.Name = model.Name;
-                item.Customization = model.Customization;
-                item.FingerGroove = model.FingerGroove;
-                item.JuiceGroove = model.JuiceGroove;
-                item.Quantity = model.Quantity;
-                item.Shape = model.Shape;
                 item.ItemType = model.ItemType;
-                item.TypeOfOrder = model.TypeOfOrder;
-                item.Handles = model.Handles;
-                item.Hanger = model.Hanger;
-                item.Font = model.Font;
-                item.GiftBox = model.GiftBox;
+               
                 ItemServices.Instance.SaveItem(item);
             }
             return RedirectToAction("Index", "Item");

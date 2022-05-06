@@ -1,4 +1,4 @@
-﻿@model AesophWorks.ViewModels.WoodTypeListingViewModel
+﻿@model AesophWorks.ViewModels.AccentListingViewModel
 @{
     ViewBag.Title = "_Listing";
 }
@@ -41,7 +41,7 @@
                                  
                                     <td>
                                         <button data-id="@item.ID" type="button" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</button>
-                                        <button data-href="@Url.Action("Delete", "WoodType", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
+                                        <button data-href="@Url.Action("Delete", "Accent", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
                                         
                                     </td>
                                 </tr>
@@ -64,7 +64,7 @@
 <script>
     $(".btnEdit").click(function () {
         $.ajax({
-            url: '@Url.Action("Action", "WoodType")',
+            url: '@Url.Action("Action", "Accent")',
             type: "GET",
             data: {ID: $(this).attr("data-id") }
         })
