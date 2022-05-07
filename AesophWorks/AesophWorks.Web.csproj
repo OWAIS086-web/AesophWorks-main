@@ -135,6 +135,7 @@
     <Compile Include="Controllers\InlayController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\SizeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WoodTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,6 +143,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ItemDataViewModel.cs" />
     <Compile Include="ViewModels\ItemListingViewModel.cs" />
+    <Compile Include="ViewModels\MakeOrderViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1318,6 +1320,8 @@
     <Content Include="Views\Feet\_Listing.cshtml" />
     <Content Include="Views\Feet\Action.cshtml" />
     <Content Include="Views\Feet\Index.cshtml" />
+    <Content Include="Views\User\Dashboard.cshtml" />
+    <Content Include="Views\User\MakeOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

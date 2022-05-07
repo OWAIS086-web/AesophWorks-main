@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="container-fluid">
+    <!-- ============================================================== -->
+    <!-- Sales Cards  -->
+    <!-- ============================================================== -->
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title mb-0">Dashboard</h4>
+            <hr />
+            <div class="row">
+                <!-- Column -->
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-cyan text-center">
+                            <a href="@Url.Action("Dashboard","User")">
+
+                                <h1 class="font-light text-white">
+                                    <i class="mdi mdi-view-dashboard"></i>
+                                </h1>
+                                <h6 class="text-white">Dashboard</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-success text-center">
+                            <a href="@Url.Action("MakeOrder","User")">
+                                <h1 class="font-light text-white">
+                                    <i class="fas fa-box-open"></i>
+                                </h1>
+                                <h6 class="text-white">Make Order</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-warning text-center">
+                            <h1 class="font-light text-white">
+                                <i class="mdi mdi-receipt"></i>
+                            </h1>
+                            <h6 class="text-white">Schedule Class</h6>
+                        </div>
+                    </div>
+                </div>
+         
+                <!-- Column -->
+                
+
+
+                <div class="col-md-6 col-lg-2 col-xlg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-danger text-center">
+                            <a href="@Url.Action("LogOut","Home")">
+
+                                <h1 class="font-light text-white">
+                                    <i class="mdi mdi-keyboard-return"></i>
+                                </h1>
+                                <h6 class="text-white">LogOut</h6>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <!-- Column -->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
