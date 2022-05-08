@@ -23,12 +23,47 @@ namespace AesophWorks.ViewModels
 
     }
 
+    public class GiftBoxListingViewModel
+    {
+        public List<GiftBox> GiftBoxs { get; set; }
+        public List<MyList> MyLists { get; set; }
+
+        public string SearchTerm { get; set; }
+    }
+    public class GiftBoxActionViewModel
+    {
+        public int ID { get; set; }
+        public int ItemID { get; set; }
+        public string Name { get; set; }
+        public string Price { get; set; }
+        public List<Item> Items { get; set; }
+
+    }
+
+
+    public class HandleListingViewModel
+    {
+        public List<Handle> Handles { get; set; }
+        public List<MyList> MyLists { get; set; }
+
+        public string SearchTerm { get; set; }
+    }
+    public class HandleActionViewModel
+    {
+        public int ID { get; set; }
+        public int ItemID { get; set; }
+        public string Name { get; set; }
+        public string Price { get; set; }
+        public List<Item> Items { get; set; }
+
+    }
+
 
 
     public class InlayListingViewModel
     {
         public List<Inlay> Inlays { get; set; }
-        public List<InlayList> MyLists { get; set; }
+        public List<MyList> MyLists { get; set; }
 
         public string SearchTerm { get; set; }
     }
@@ -38,8 +73,7 @@ namespace AesophWorks.ViewModels
         public int ItemID { get; set; }
         public string Name { get; set; }
         public string Price { get; set; }
-        public string InlaySpecs { get; set; }
-        public string InlayTextStyle { get; set; }
+       
         public List<Item> Items { get; set; }
 
     }
@@ -126,24 +160,11 @@ namespace AesophWorks.ViewModels
 
     }
 
-    public class InlayList
-    {
-        public int ID { get; set; }
-        public int ItemID { get; set; }
-        public string Name { get; set; }
-        public string Price { get; set; }
-        public string InlaySpecs { get; set; }
-        public string InlayTextStyle { get; set; }
-        public Item Item { get; set; }
-
-    }
-
-
-
-
     public class OrderTypeListingViewModel
     {
         public List<ItemType> OrderTypes { get; set; }
+        public List<MyList> MyLists { get; set; }
+
         public string SearchTerm { get; set; }
     }
     public class OrderTypeActionViewModel

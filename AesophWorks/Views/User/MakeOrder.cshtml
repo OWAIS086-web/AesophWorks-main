@@ -9,7 +9,9 @@
     <link href="~/Content/theme/dist/css/style.min.css" rel="stylesheet" />
 </head>
 
+
 <div class="card">
+    
     <div class="card-body">
         <h2 class="card-title">Make Order</h2>
         <hr />
@@ -33,63 +35,28 @@
 
         </div>
 
+        <div id="detailsSection">
+            <form id="example-form" class="mt-5">
+                <div>
+                    <h3>Select Product</h3>
+                    <section>
+                        <label for="product">Select Product</label>
+                        <select id="Product" onchange="GetData()" class="select2 form-select shadow-none select2-hidden-accessible" name="Product">
+                            @foreach (var item in Model.Items)
+                            {
+                                <option value="@item.ID">@item.Name</option>
+                            }
+                        </select>
 
-        <form id="example-form" action="#" class="mt-5">
-            <div>
-                <h3>Select Product</h3>
-                <section>
-                    <label for="product">Select Product</label>
-                    <select class="select2 form-select shadow-none select2-hidden-accessible" name="Product">
-                        @foreach (var item in Model.Items)
-                        {
-                            <option value="@item.Name" >@item.Name</option>
-                        }
-                    </select>
 
-                  
-                </section>
-                <h3>Select Size</h3>
-                <section>
-                    <label for="name">First name *</label>
-                    <input id="name"
-                           name="name"
-                           type="text"
-                           class="required form-control" />
-                    <label for="surname">Last name *</label>
-                    <input id="surname"
-                           name="surname"
-                           type="text"
-                           class="required form-control" />
-                    <label for="email">Email *</label>
-                    <input id="email"
-                           name="email"
-                           type="text"
-                           class="required email form-control" />
-                    <label for="address">Address</label>
-                    <input id="address"
-                           name="address"
-                           type="text"
-                           class="form-control" />
-                    <p>(*) Mandatory</p>
-                </section>
-                <h3>Hints</h3>
-                <section>
-                    <ul>
-                        <li>Foo</li>
-                        <li>Bar</li>
-                        <li>Foobar</li>
-                    </ul>
-                </section>
-                <h3>Finish</h3>
-                <section>
-                    <input id="acceptTerms"
-                           name="acceptTerms"
-                           type="checkbox"
-                           class="required" />
-                    <label for="acceptTerms">I agree with the Terms and Conditions.</label>
-                </section>
-            </div>
-        </form>
+                    </section>
+
+
+                 
+                </div>
+            </form>
+        </div>
+
     </div>
 </div>
 
@@ -110,16 +77,12 @@
 <!-- this page js -->
 <script src="~/Content/theme/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
 <script src="~/Content/theme/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
-<script>// Basic Example with form
+<script>
+// Basic Example with form
       var form = $("#example-form");
       form.validate({
         errorPlacement: function errorPlacement(error, element) {
           element.before(error);
-        },
-        rules: {
-          confirm: {
-            equalTo: "#password",
-          },
         },
       });
       form.children("div").steps({
@@ -137,4 +100,31 @@
         onFinished: function (event, currentIndex) {
           alert("Submitted!");
         },
-      });</script>
+      });
+
+
+
+
+    function GetData() {
+        $.get("@Url.Action("GetData","User")", {
+            Product: $('#Product').find(":selected").val()
+
+        }, function (data) {
+            $("#detailsSection").html(data);
+        });
+    }
+
+    function GetTotal() {
+        $.get("@Url.Action("GetTotal","User")", {
+            Product: $('#Product').find(":selected").val(),
+            WoodType: $('#WoodType').find(":selected").val(),
+            Size: $('#Size').find(":selected").val(),
+            Accent: $('#Accent').find(":selected").val(),
+            CutterButter: $('#CutterButter').find(":selected").val()
+
+
+        }, function (data) {
+            $("#totalsection").html(data);
+        });
+    }
+</script>

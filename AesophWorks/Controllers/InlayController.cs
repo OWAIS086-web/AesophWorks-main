@@ -16,12 +16,12 @@ namespace AesophWorks.Controllers
         {
             InlayListingViewModel model = new InlayListingViewModel();
             var InlayLsit = ItemDataServices.Instance.GetAllInlays(SearchTerm);
-            List<InlayList> myList = new List<InlayList>();
+            List<MyList> myList = new List<MyList>();
 
             foreach (var item in InlayLsit)
             {
                 var Item = ItemServices.Instance.GetItem(item.ItemID);
-                myList.Add(new InlayList { ID = item.ID, ItemID = item.ItemID, Item = Item, Name = item.Name, Price = item.Price,InlaySpecs=item.InlaySpecs,InlayTextStyle=item.InlayTextStyle });
+                myList.Add(new MyList { ID = item.ID, ItemID = item.ItemID, Item = Item, Name = item.Name, Price = item.Price});
             }
             model.MyLists = myList;
             return View(model);
@@ -39,8 +39,7 @@ namespace AesophWorks.Controllers
                 model.Name = Inlay.Name;
                 model.ItemID = Inlay.ItemID;
                 model.Price = Inlay.Price;
-                model.InlaySpecs = Inlay.InlaySpecs;
-                model.InlayTextStyle = Inlay.InlayTextStyle;
+                
                 return PartialView("Action", model);
 
             }
@@ -63,8 +62,7 @@ namespace AesophWorks.Controllers
                 Inlay.Name = model.Name;
                 Inlay.ItemID = model.ItemID;
                 Inlay.Price = model.Price;
-                Inlay.InlaySpecs = model.InlaySpecs;
-                Inlay.InlayTextStyle = model.InlayTextStyle;
+  
                 ItemDataServices.Instance.UpdateInlay(Inlay);
 
             }
@@ -75,8 +73,7 @@ namespace AesophWorks.Controllers
                 Inlay.Name = model.Name;
                 Inlay.ItemID = model.ItemID;
                 Inlay.Price = model.Price;
-                Inlay.InlaySpecs = model.InlaySpecs;
-                Inlay.InlayTextStyle = model.InlayTextStyle;
+          
                 ItemDataServices.Instance.SaveInlay(Inlay);
             }
             return RedirectToAction("Index", "Inlay");

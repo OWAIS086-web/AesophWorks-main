@@ -92,6 +92,18 @@
     <Compile Include="Migrations\202205061143379_moresimplifieditem.designer.cs">
       <DependentUpon>202205061143379_moresimplifieditem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205080615330_GiftBoxAndHandlesAdded.cs" />
+    <Compile Include="Migrations\202205080615330_GiftBoxAndHandlesAdded.designer.cs">
+      <DependentUpon>202205080615330_GiftBoxAndHandlesAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205080619184_inlayconflictfix.cs" />
+    <Compile Include="Migrations\202205080619184_inlayconflictfix.designer.cs">
+      <DependentUpon>202205080619184_inlayconflictfix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205080624025_ordertypes.cs" />
+    <Compile Include="Migrations\202205080624025_ordertypes.designer.cs">
+      <DependentUpon>202205080624025_ordertypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +147,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205061143379_moresimplifieditem.resx">
       <DependentUpon>202205061143379_moresimplifieditem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205080615330_GiftBoxAndHandlesAdded.resx">
+      <DependentUpon>202205080615330_GiftBoxAndHandlesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205080619184_inlayconflictfix.resx">
+      <DependentUpon>202205080619184_inlayconflictfix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205080624025_ordertypes.resx">
+      <DependentUpon>202205080624025_ordertypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

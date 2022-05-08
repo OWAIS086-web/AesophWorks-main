@@ -131,9 +131,12 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CutterButterController.cs" />
     <Compile Include="Controllers\FeetController.cs" />
+    <Compile Include="Controllers\GiftBoxController.cs" />
+    <Compile Include="Controllers\HandleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InlayController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\OrderTypeController.cs" />
     <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WoodTypeController.cs" />
@@ -1308,10 +1311,10 @@
     <Content Include="Views\Size\_Listing.cshtml" />
     <Content Include="Views\Size\Action.cshtml" />
     <Content Include="Views\Size\Index.cshtml" />
-    <Content Include="Views\Inlay\_Delete.cshtml" />
-    <Content Include="Views\Inlay\_Listing.cshtml" />
-    <Content Include="Views\Inlay\Action.cshtml" />
-    <Content Include="Views\Inlay\Index.cshtml" />
+    <Content Include="Views\Accent\_Delete.cshtml" />
+    <Content Include="Views\Accent\_Listing.cshtml" />
+    <Content Include="Views\Accent\Action.cshtml" />
+    <Content Include="Views\Accent\Index.cshtml" />
     <Content Include="Views\CutterButter\_Delete.cshtml" />
     <Content Include="Views\CutterButter\_Listing.cshtml" />
     <Content Include="Views\CutterButter\Action.cshtml" />
@@ -1322,11 +1325,21 @@
     <Content Include="Views\Feet\Index.cshtml" />
     <Content Include="Views\User\Dashboard.cshtml" />
     <Content Include="Views\User\MakeOrder.cshtml" />
+    <Content Include="Views\User\_DetailSection.cshtml" />
+    <Content Include="Views\Inlay\_Delete.cshtml" />
+    <Content Include="Views\Inlay\_Listing.cshtml" />
+    <Content Include="Views\Inlay\Action.cshtml" />
+    <Content Include="Views\Inlay\Index.cshtml" />
+    <Content Include="Views\OrderType\_Delete.cshtml" />
+    <Content Include="Views\OrderType\_Listing.cshtml" />
+    <Content Include="Views\OrderType\Action.cshtml" />
+    <Content Include="Views\OrderType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Accent\" />
+    <Folder Include="Views\GiftBox\" />
+    <Folder Include="Views\Handle\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

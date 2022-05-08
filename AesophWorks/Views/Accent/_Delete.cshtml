@@ -1,11 +1,11 @@
-﻿@model AesophWorks.ViewModels.InlayActionViewModel
+﻿@model AesophWorks.ViewModels.AccentActionViewModel
 
 @if (Model != null)
 {
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">
-                <span>Delete Inlay</span>
+                <span>Delete Accent</span>
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -16,7 +16,7 @@
                 <input type="hidden" name="ID" value="@Model.ID" />
             </form>
             <div class="alert alert-danger" role="alert">
-                Are you sure you want to delete this Inlay: @Model.Name?
+                Are you sure you want to delete this Accent: @Model.Name?
             </div>
         </div>
         <div class="modal-footer">
@@ -29,13 +29,13 @@
 <script>
 	$("#actionButton").click(function () {
 		$.ajax({
-			url: '@Url.Action("Delete", "Inlay")',
+			url: '@Url.Action("Delete", "Accent")',
 			type: "post",
 			data: $("#actionForm").serialize()
 		})
 		.done(function () {
 
-            window.location.href = "@Url.Action("Index", "Inlay")";
+            window.location.href = "@Url.Action("Index","Accent")";
 
 		});
 	});

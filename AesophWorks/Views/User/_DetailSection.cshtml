@@ -1,0 +1,229 @@
+﻿@model AesophWorks.ViewModels.MakeOrderViewModel
+
+@{
+    ViewBag.Title = "_DetailSection";
+}
+<style>
+    a[href="#finish"] {
+        display: none !important;
+    }
+</style>
+
+<div id="detailsSection">
+    <form id="example-form" class="mt-5">
+        <input type="text" id="totalsection" />
+        <div>
+            <h3>Select Product</h3>
+            <section>
+                <label for="product">Select Product</label>
+                <select id="Product" onchange="GetData()" class="select2 form-select shadow-none select2-hidden-accessible" name="Product">
+                    @foreach (var item in Model.Items)
+                    {
+                        if (TempData["ProductID"].ToString() == item.ID.ToString())
+                        {
+                            <option selected value="@item.ID">@item.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.ID">@item.Name</option>
+
+                        }
+                    }
+                </select>
+
+
+            </section>
+
+            @if (Model.OrderTypes.Count != 0)
+            {
+                <h3>Select Cutter Butter</h3>
+                <section>
+                    <label for="name">Select Order Type</label>
+                    <select id="OrderType" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="OrderType">
+                        @foreach (var item in Model.OrderTypes)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.GiftBoxes.Count != 0)
+            {
+                <h3>Select Gift Box</h3>
+                <section>
+                    <label for="name">Select Gift Box</label>
+                    <select id="GiftBox" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="GiftBox">
+                        @foreach (var item in Model.GiftBoxes)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.Handles.Count != 0)
+            {
+                <h3>Select Handles</h3>
+                <section>
+                    <label for="name">Select Handle</label>
+                    <select id="Handle" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Handle">
+                        @foreach (var item in Model.Handles)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.WoodTypes.Count != 0)
+            {
+                <h3>Select Wood Type</h3>
+                <section>
+                    <label for="name">Select Wood Type</label>
+                    <select id="WoodType" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="WoodType">
+                        @foreach (var item in Model.WoodTypes)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+
+                </section>
+            }
+            @if (Model.Feets.Count != 0)
+            {
+                <h3>Select Feet</h3>
+                <section>
+                    <label for="name">Select Feet</label>
+                    <select id="Feet" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Feet">
+                        @foreach (var item in Model.Feets)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.Inlays.Count != 0)
+            {
+                <h3>Select Inlay</h3>
+                <section>
+                    <label for="name">Select Inlay</label>
+                    <select id="Inlay" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Inlay">
+                        @foreach (var item in Model.Inlays)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.Sizes.Count != 0)
+            {
+                <h3>Select Size</h3>
+                <section>
+                    <label for="name">Select Size</label>
+                    <select id="Size" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Size">
+                        @foreach (var item in Model.Sizes)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.Accents.Count != 0)
+            {
+                <h3>Select Accent</h3>
+                <section>
+                    <label for="name">Select Accent</label>
+                    <select id="Accent" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Accent">
+                        @foreach (var item in Model.Accents)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>}
+            @if (Model.CutterButters.Count != 0)
+            {
+                <h3>Select Cutter Butter</h3>
+                <section>
+                    <label for="name">Select Cutter Butter</label>
+                    <select id="CutterButter" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="CutterButter">
+                        @foreach (var item in Model.CutterButters)
+                        {
+                            <option value="@item.ID">@item.Name</option>
+                        }
+                    </select>
+                </section>
+            }
+
+            <h3>Finish</h3>
+            <section>
+                <button class="btn btn-block btn-outline-primary">Place Order</button>
+            </section>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    var form = $("#example-form");
+      form.validate({
+        errorPlacement: function errorPlacement(error, element) {
+          element.before(error);
+        },
+      });
+      form.children("div").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        onStepChanging: function (event, currentIndex, newIndex) {
+          form.validate().settings.ignore = ":disabled,:hidden";
+          return form.valid();
+        },
+        onFinishing: function (event, currentIndex) {
+          form.validate().settings.ignore = ":disabled";
+          return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+          alert("Submitted!");
+        },
+      });
+
+
+
+
+    function GetData() {
+        $.get("@Url.Action("GetData","User")", {
+            Product: $('#Product').find(":selected").val()
+
+        }, function (data) {
+            $("#detailsSection").html(data);
+            GetTotal();
+        });
+    }
+
+    function GetTotal() {
+         $.ajax({
+            url: '@Url.Action("GetTotal", "User")',
+            type: "GET",
+             data: {
+                 Product: $('#Product').find(":selected").val(),
+                 WoodType: $('#WoodType').find(":selected").val(),
+                 Size: $('#Size').find(":selected").val(),
+                 Accent: $('#Accent').find(":selected").val(),
+                 CutterButter: $('#CutterButter').find(":selected").val(),
+                 Feet: $('#Feet').find(":selected").val(),
+                 OrderType: $('#OrderType').find(":selected").val(),
+                 GiftBox: $('#GiftBox').find(":selected").val(),
+                 Handle: $('#Handle').find(":selected").val(),
+                 Inlay: $('#Inlay').find(":selected").val()
+             }
+         })
+             .done(function (data) {
+                 $("#totalsection").val(data);
+             })
+             .error(function (error) {
+                 alert(error);
+             }) 
+    }
+</script>
+
+
+
+

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AesophWorks.Entities
 {
-    public class Inlay : SharedEntity
+    public class GiftBox:SharedEntity
     {
     }
 }
