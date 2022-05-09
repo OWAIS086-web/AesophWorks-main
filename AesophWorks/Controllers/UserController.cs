@@ -18,6 +18,8 @@ namespace AesophWorks.Controllers
         }
 
 
+
+
         public ActionResult MakeOrder()
         {
             MakeOrderViewModel model = new MakeOrderViewModel();
@@ -132,6 +134,15 @@ namespace AesophWorks.Controllers
             Double GrandTotal = 0;
             string InlayTextStyle = "";
             string InlayTextSpecification = "";
+            Double CutterButterPrice = 0;
+            Double GiftBoxPrice = 0;
+            Double HandlePrice = 0;
+            Double InlayPrice = 0;
+            Double FeetPrice = 0;
+            Double SizePrice = 0;
+            Double WoodTypePrice = 0;
+            Double OrderTypePrice = 0;
+            Double AccentPrice = 0;
             var Item = ItemServices.Instance.GetItem(model.Item);
             var CutterButter = ItemDataServices.Instance.GetSelectedProductCutterButters(Item.ID, model.CutterButter);
             var WoodType = ItemDataServices.Instance.GetSelectedProductWoodTypes(Item.ID, model.WoodType);
@@ -149,32 +160,69 @@ namespace AesophWorks.Controllers
             var User = UserServices.Instance.GetUser(int.Parse(Session["ID"].ToString()));
             var Feet = ItemDataServices.Instance.GetSelectedProductFeets(Item.ID, model.Feet);
             var Order = new Order();
+            
             Order.Item = Item.Name;
-            Order.GiftBox = GiftBox.Name;
-            Order.GiftBoxPrice = GiftBox.Price;
-            Order.Handle = Handle.Name;
-            Order.HandPrice = Handle.Price;
-            Order.WoodType = WoodType.Name;
-            Order.WoodTypePrice = WoodType.Price;
-            Order.Feet = Feet.Name;
-            Order.FeetPrice = Feet.Price;
-            Order.Inlay = Inlay.Name;
-            Order.InlayTextStyle = InlayTextStyle;
-            Order.InlayTextSpecification = InlayTextSpecification;
-            Order.Size = Size.Name;
-            Order.SizePrice = Size.Price;
-            Order.CutterButter = CutterButter.Name;
-            Order.CutterButterPrice = CutterButter.Price;
-            Order.OrderType = OrderType.Name;
-            Order.OrderTypePrice = OrderType.Price;
-            Order.Accent = Accent.Name;
-            Order.AccentPrice = Accent.Price;
+            if (GiftBox != null)
+            {
+                Order.GiftBox = GiftBox.Name;
+                Order.GiftBoxPrice = GiftBox.Price;
+                GiftBoxPrice = GiftBox.Price;
+            }
+            if (Handle != null)
+            {
+                Order.Handle = Handle.Name;
+                Order.HandPrice = Handle.Price;
+                HandlePrice = Handle.Price;
+            }
+            if (WoodType != null)
+            {
+                Order.WoodType = WoodType.Name;
+                Order.WoodTypePrice = WoodType.Price;
+                WoodTypePrice = WoodType.Price;
+            }
+            if (Feet != null)
+            {
+                Order.Feet = Feet.Name;
+                Order.FeetPrice = Feet.Price;
+                FeetPrice = Feet.Price;
+            }
+            if (Inlay != null)
+            {
+                Order.Inlay = Inlay.Name;
+                Order.InlayPrice = Inlay.Price;
+                InlayPrice = Inlay.Price;
+                Order.InlayTextStyle = InlayTextStyle;
+                Order.InlayTextSpecification = InlayTextSpecification;
+            }
+            if (Size != null)
+            {
+                Order.Size = Size.Name;
+                Order.SizePrice = Size.Price;
+                SizePrice = Size.Price;
+            }
+            if (CutterButter != null)
+            {
+                Order.CutterButter = CutterButter.Name;
+                Order.CutterButterPrice = CutterButter.Price;
+                CutterButterPrice = CutterButter.Price;
+            }
+            if (OrderType != null)
+            {
+                Order.OrderType = OrderType.Name;
+                Order.OrderTypePrice = OrderType.Price;
+                OrderTypePrice = OrderType.Price;
+            }
+            if (Accent != null)
+            {
+                Order.Accent = Accent.Name;
+                Order.AccentPrice = Accent.Price;
+                AccentPrice = Accent.Price;
+            }
             Order.Name = User.Name;
 
-            GrandTotal = CutterButter.Price + GiftBox.Price +
-                Handle.Price + Inlay.Price + 
-                Feet.Price + Size.Price + 
-                WoodType.Price + OrderType.Price + Accent.Price;
+
+            GrandTotal = CutterButterPrice + GiftBoxPrice + HandlePrice + InlayPrice + FeetPrice + SizePrice + WoodTypePrice + OrderTypePrice + AccentPrice;
+
             Order.Total = GrandTotal;
 
             UserServices.Instance.SaveOrder(Order);

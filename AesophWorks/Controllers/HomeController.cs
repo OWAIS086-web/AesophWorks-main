@@ -58,6 +58,7 @@ namespace AesophWorks.Controllers
                 Session["ID"] = user.ID.ToString();
                 Session["UserName"] = user.UserName.ToString();
                 Session["Email"] = user.Email.ToString();
+                Session["Name"] = user.Name;
                 Session["Role"] = user.Role.ToString();
                 if (user.Role == "Admin")
                 {

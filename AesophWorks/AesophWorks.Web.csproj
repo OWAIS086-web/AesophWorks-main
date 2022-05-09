@@ -136,6 +136,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InlayController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrderTypeController.cs" />
     <Compile Include="Controllers\SizeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="ViewModels\ItemDataViewModel.cs" />
     <Compile Include="ViewModels\ItemListingViewModel.cs" />
     <Compile Include="ViewModels\MakeOrderViewModel.cs" />
+    <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1342,6 +1344,9 @@
     <Content Include="Views\Handle\_Listing.cshtml" />
     <Content Include="Views\Handle\Action.cshtml" />
     <Content Include="Views\Handle\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\_Listing.cshtml" />
+    <Content Include="Views\Order\_Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

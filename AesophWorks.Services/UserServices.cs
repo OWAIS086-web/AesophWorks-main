@@ -129,6 +129,8 @@ namespace AesophWorks.Services
             }
         }
 
+
+        
         public void UpdateUser(User user)
         {
             using (var context = new AWContext())
@@ -181,6 +183,38 @@ namespace AesophWorks.Services
                 context.Orders.Remove(Order);
                 context.SaveChanges();
             }
+        }
+
+        public Order GetOrder(int ID)
+        {
+            using (var context = new AWContext())
+            {
+                return context.Orders.Find(ID);
+            }
+        }
+
+
+
+        public List<Order> GetAllOrders(string search)
+        {
+
+            using (var context = new AWContext())
+            {
+                if (!string.IsNullOrEmpty(search))
+                {
+                    return context.Orders.Where(p => p.Name != null && p.Name.ToLower()
+                        .Contains(search.ToLower()))
+                        .OrderBy(x => x.ID)
+                        .ToList();
+                }
+                else
+                {
+                    return context.Orders
+                        .OrderBy(x => x.ID)
+                        .ToList();
+                }
+            }
+
         }
 
 

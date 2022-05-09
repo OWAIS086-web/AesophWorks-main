@@ -19,12 +19,6 @@ namespace AesophWorks.Controllers
             return View();
         }
        
-
-
-
-
-
-
         public ActionResult Users(string SearchTerm)
         {
             UsersListingViewModel model = new UsersListingViewModel();
@@ -40,6 +34,7 @@ namespace AesophWorks.Controllers
             {
                 var user = UserServices.Instance.GetUser(ID);
                 model.ID = user.ID;
+                model.Name = user.Name;
                 model.UserName = user.UserName;
                 model.Email = user.Email;
                 model.Password = user.Password;
@@ -66,6 +61,7 @@ namespace AesophWorks.Controllers
 
                 user.ID = model.ID;
                 user.Contact = model.Contact;
+                user.Name = model.Name;
                 user.Email = model.Email;
                 user.Password = model.Password;
                 user.Role = model.Role;
@@ -78,6 +74,7 @@ namespace AesophWorks.Controllers
                 var user = new User();
                 user.Contact = model.Contact;
                 user.Email = model.Email;
+                user.Name = model.Name;
                 user.Password = model.Password;
                 user.Role = model.Role;
                 user.UserName = model.UserName;
