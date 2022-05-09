@@ -14,6 +14,7 @@
     
     <div class="card-body">
         <h2 class="card-title">Make Order</h2>
+
         <hr />
 
 
@@ -30,6 +31,8 @@
                         </a>
                     </div>
                 </div>
+                <span>Total</span><input style="font-size:25px;" disabled type="text" id="totalsection" />
+
             </div>
 
 
@@ -52,7 +55,7 @@
                     </section>
 
 
-                 
+
                 </div>
             </form>
         </div>
@@ -112,7 +115,17 @@
         }, function (data) {
             $("#detailsSection").html(data);
         });
+    
     }
+
+
+    $(document).ready(function () {
+        GetData();
+        GetTotal();
+    });
+
+
+
 
     function GetTotal() {
         $.get("@Url.Action("GetTotal","User")", {

@@ -1334,12 +1334,18 @@
     <Content Include="Views\OrderType\_Listing.cshtml" />
     <Content Include="Views\OrderType\Action.cshtml" />
     <Content Include="Views\OrderType\Index.cshtml" />
+    <Content Include="Views\GiftBox\_Delete.cshtml" />
+    <Content Include="Views\GiftBox\_Listing.cshtml" />
+    <Content Include="Views\GiftBox\Action.cshtml" />
+    <Content Include="Views\GiftBox\Index.cshtml" />
+    <Content Include="Views\Handle\_Delete.cshtml" />
+    <Content Include="Views\Handle\_Listing.cshtml" />
+    <Content Include="Views\Handle\Action.cshtml" />
+    <Content Include="Views\Handle\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\GiftBox\" />
-    <Folder Include="Views\Handle\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
