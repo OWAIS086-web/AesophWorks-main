@@ -104,6 +104,22 @@
     <Compile Include="Migrations\202205080624025_ordertypes.designer.cs">
       <DependentUpon>202205080624025_ordertypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205091326447_ordersadded.cs" />
+    <Compile Include="Migrations\202205091326447_ordersadded.designer.cs">
+      <DependentUpon>202205091326447_ordersadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205091349411_totaladded.cs" />
+    <Compile Include="Migrations\202205091349411_totaladded.designer.cs">
+      <DependentUpon>202205091349411_totaladded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205091415397_datatypechangedtodouble.cs" />
+    <Compile Include="Migrations\202205091415397_datatypechangedtodouble.designer.cs">
+      <DependentUpon>202205091415397_datatypechangedtodouble.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205091428002_OrderValuesFixes.cs" />
+    <Compile Include="Migrations\202205091428002_OrderValuesFixes.designer.cs">
+      <DependentUpon>202205091428002_OrderValuesFixes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +172,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205080624025_ordertypes.resx">
       <DependentUpon>202205080624025_ordertypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205091326447_ordersadded.resx">
+      <DependentUpon>202205091326447_ordersadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205091349411_totaladded.resx">
+      <DependentUpon>202205091349411_totaladded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205091415397_datatypechangedtodouble.resx">
+      <DependentUpon>202205091415397_datatypechangedtodouble.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205091428002_OrderValuesFixes.resx">
+      <DependentUpon>202205091428002_OrderValuesFixes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

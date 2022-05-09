@@ -18,7 +18,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+public Double Price { get; set; }
         public List<Item> Items { get; set; }
 
     }
@@ -35,7 +35,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+public Double Price { get; set; }
         public List<Item> Items { get; set; }
 
     }
@@ -53,7 +53,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+public Double Price { get; set; }
         public List<Item> Items { get; set; }
 
     }
@@ -72,7 +72,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+public Double Price { get; set; }
        
         public List<Item> Items { get; set; }
 
@@ -92,7 +92,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+public Double Price { get; set; }
         public List<Item> Items { get; set; }
 
     }
@@ -111,7 +111,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+public Double Price { get; set; }
         public List<Item> Items { get; set; }
 
     }
@@ -130,7 +130,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+public Double Price { get; set; }
         public List<Item> Items { get; set; }
 
     }
@@ -146,7 +146,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+        public Double Price { get; set; }
         public List<Item> Items { get; set; }
     }
 
@@ -155,7 +155,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+        public Double Price { get; set; }
         public Item Item { get; set; }
 
     }
@@ -172,7 +172,7 @@ namespace AesophWorks.ViewModels
         public int ID { get; set; }
         public int ItemID { get; set; }
         public string Name { get; set; }
-        public string Price { get; set; }
+        public Double Price { get; set; }
         public List<Item> Items { get; set; }
 
     }

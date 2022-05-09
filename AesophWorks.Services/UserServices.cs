@@ -150,5 +150,44 @@ namespace AesophWorks.Services
         }
 
 
+
+
+
+
+        public void SaveOrder(Order Order)
+        {
+            using (var context = new AWContext())
+            {
+                context.Orders.Add(Order);
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateOrder(Order Order)
+        {
+            using (var context = new AWContext())
+            {
+                context.Entry(Order).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        public void DeleteOrder(int ID)
+        {
+            using (var context = new AWContext())
+            {
+
+                var Order = context.Orders.Find(ID);
+                context.Orders.Remove(Order);
+                context.SaveChanges();
+            }
+        }
+
+
+
+
+
+
+
     }
 }

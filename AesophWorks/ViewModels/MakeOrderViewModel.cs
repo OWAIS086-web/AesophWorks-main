@@ -18,7 +18,40 @@ namespace AesophWorks.ViewModels
         public List<OrderType> OrderTypes { get; set; }
         public List<Handle> Handles { get; set; }
         public List<GiftBox> GiftBoxes { get; set; }
-
         public Double Total { get; set; }
+
+
+
+        //For OrderSaving
+        public int Item { get; set; }
+        public int GiftBox { get; set; }
+        public Double GiftBoxPrice { get; set; }
+        public int Handle { get; set; }
+        public Double HandPrice { get; set; }
+        public int WoodType { get; set; }
+        public Double WoodTypePrice { get; set; }
+        public int Feet { get; set; }
+        public Double FeetPrice { get; set; }
+        public int Inlay { get; set; }
+
+        public int Accent { get; set; }
+
+        public Double AccentPrice { get; set; }
+        public Double InlayPrice { get; set; }
+        public string InlayTextStyle { get; set; }
+        public string InlayTextSpecification { get; set; }
+        public int Size { get; set; }
+        public Double SizePrice { get; set; }
+        public int CutterButter { get; set; }
+        public Double OrderTypePrice { get; set; }
+        public int OrderType { get; set; }
+        public Double CutterButterPrice { get; set; }
+        public Double GrandTotal { get; set; }
+
+
+
     }
+
+
+
 }

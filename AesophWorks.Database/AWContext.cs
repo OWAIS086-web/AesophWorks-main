@@ -28,6 +28,7 @@ namespace AesophWorks.Database
         public DbSet<WoodType> WoodTypes { get; set; }
         public DbSet<Handle> Handles { get; set; }
         public DbSet<GiftBox> GiftBoxes { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
     }
 }
