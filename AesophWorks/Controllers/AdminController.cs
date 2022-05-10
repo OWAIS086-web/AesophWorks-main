@@ -76,11 +76,26 @@ namespace AesophWorks.Controllers
                 user.Email = model.Email;
                 user.Name = model.Name;
                 user.Password = model.Password;
-                user.Role = model.Role;
+                if (Session["Role"] == null)
+                {
+                    user.Role = "User";
+                }
+                else
+                {
+                    user.Role = model.Role;
+                }
                 user.UserName = model.UserName;
                 UserServices.Instance.SaveUser(user);
             }
-            return RedirectToAction("Users", "Admin");
+            if (Session["Role"] != null)
+            {
+                return RedirectToAction("Users", "Admin");
+            }
+            else
+            {
+                return RedirectToAction("LogOut", "Home");
+
+            }
         }
 
 

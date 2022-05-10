@@ -72,9 +72,9 @@
             .done(function (oData) {
                 $("#actionContainer").html(oData);
             })
-            .error(function (error) {
-                alert(error);
-            })
+            //.error(function (error) {
+            //    alert(error);
+            //})
     });
 
 
@@ -96,7 +96,7 @@
 
     $(".btnView").click(function () {
         $.ajax({
-            url: '@Url.Action("View", "Order")',
+            url: '@Url.Action("ViewOrder", "User")',
             type: "GET",
             data: {ID: $(this).attr("data-id") }
         })

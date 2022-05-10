@@ -5,173 +5,202 @@
 
 @if (Model != null)
 {
-    
-<div class="card">
-    <div class="card-body">
-        <h2 class="card-title">
-            @if (Model.ID != 0)
-            {
-                <span>Edit User</span>
-            }
-            else
-            {
-                <span>Save User</span>
-            }
-        </h2>
-        <hr />
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit User</span>
+                }
+                else
+                {
+                    <span>Save User</span>
+                }
+            </h2>
+            <hr />
 
 
-        <!---------->
-        <div class="row">
-            <div class="col-md-6 col-lg-2 col-xlg-3">
-                <div class="card card-hover">
-                    <div class="box bg-cyan text-center">
-                        <a href="@Url.Action("Users","Admin")">
-
-                            <h1 class="font-light text-white">
-                                <i class="mdi mdi-keyboard-return"></i>
-                            </h1>
-                            <h6 class="text-white">Back to Users</h6>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-2 col-xlg-3">
-                <div class="card card-hover">
-                    <div class="box bg-info text-center">
-                        <a href="@Url.Action("UserAction","Admin")">
-
-                            <h1 class="font-light text-white">
-                                <i class="mdi mdi-plus"></i>
-                            </h1>
-                            <h6 class="text-white">Add New User</h6>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-2 col-xlg-3">
-                <div class="card card-hover">
-                    <div class="box bg-danger text-center">
-                        <a href="@Url.Action("Users","Admin")">
-
-                            <h1 class="font-light text-white">
-                                <i class="mdi mdi-restart"></i>
-                            </h1>
-                            <h6 class="text-white">Reset</h6>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!---------->
-
-        <form id="actionForm">
-            <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+            <!---------->
             <div class="row">
-                <div class="col-md-12">
+                @if (Session["Role"] != null)
+                {
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-cyan text-center">
+                                <a href="@Url.Action("Users","Admin")">
 
-                    <div class="form-group col-md-5">
-                        <label class="col-sm-12">Name</label>
-                        <input required class="form-control" id="UserName" value="@Model.Name" name="Name" placeholder="Enter Name">
+                                    <h1 class="font-light text-white">
+                                        <i class="mdi mdi-keyboard-return"></i>
+                                    </h1>
+                                    <h6 class="text-white">Back to Users</h6>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group col-md-5">
-                        <label class="col-sm-12">User Name</label>
-                        <input required class="form-control" id="UserName" value="@Model.UserName" name="UserName" placeholder="Enter UserName">
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <a href="@Url.Action("UserAction","Admin")">
+
+                                    <h1 class="font-light text-white">
+                                        <i class="mdi mdi-plus"></i>
+                                    </h1>
+                                    <h6 class="text-white">Add New User</h6>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-danger text-center">
+                                <a href="@Url.Action("Users","Admin")">
+
+                                    <h1 class="font-light text-white">
+                                        <i class="mdi mdi-restart"></i>
+                                    </h1>
+                                    <h6 class="text-white">Reset</h6>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!---------->
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Name</label>
+                            <input required class="form-control" id="UserName" value="@Model.Name" name="Name" placeholder="Enter Name">
+                        </div>
+
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">User Name</label>
+                            <input required class="form-control" id="UserName" value="@Model.UserName" name="UserName" placeholder="Enter UserName">
+                        </div>
 
 
-                    <div class="form-group col-md-5">
-                        <label class="col-sm-3">Email</label>
-                        <input required class="form-control" id="Email" type="email" value="@Model.Email" name="Email" placeholder="Enter Email">
 
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-3">Email</label>
+                            <input required class="form-control" id="Email" type="email" value="@Model.Email" name="Email" placeholder="Enter Email">
+
+                        </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="form-group col-md-5">
-                <label class="col-sm-3">Contact</label>
-                <input required class="form-control" id="Contact" value="@Model.Contact" name="Contact" placeholder="Enter Contact Number">
-
-            </div>
-
-            <div class="form-group col-md-5">
-                <label class="col-sm-3">Password</label>
-                <input required class="form-control" id="Password" value="@Model.Password" name="Password" placeholder="Enter Password">
-
-            </div>
-            @if (Model.ID != null && Model.ID != 0)
-            {
                 <div class="form-group col-md-5">
-                    <label class="col-sm-3">Status</label>
-                    <select id="Role" class="select2 form-select shadow-none select2-hidden-accessible" name="Role">
-                        @if (Model.Role == "Admin")
-                        {
-                            <option selected value="Admin">Admin</option>
-                            <option value="User">User</option>
-                        }
-                        else
-                        {
+                    <label class="col-sm-3">Contact</label>
+                    <input required class="form-control" id="Contact" value="@Model.Contact" name="Contact" placeholder="Enter Contact Number">
+
+                </div>
+
+                <div class="form-group col-md-5">
+                    <label class="col-sm-3">Password</label>
+                    <input required class="form-control" id="Password" value="@Model.Password" name="Password" placeholder="Enter Password">
+
+                </div>
+
+                @if (Session["Role"] != null)
+                {
+                    if (Model.ID != null && Model.ID != 0)
+                    {
+                    <div class="form-group col-md-5">
+                        <label class="col-sm-3">Status</label>
+                        <select id="Role" class="select2 form-select shadow-none select2-hidden-accessible" name="Role">
+                            @if (Model.Role == "Admin")
+                            {
+                                <option selected value="Admin">Admin</option>
+                                <option value="User">User</option>
+                            }
+                            else
+                            {
+                                <option value="Admin">Admin</option>
+                                <option selected value="User">User</option>
+                            }
+                        </select>
+                    </div>
+                    }
+                    else
+                    {
+                    <div class="form-group col-md-5">
+                        <label class="col-sm-3">Status</label>
+                        <select id="Role" class="select2 form-select shadow-none select2-hidden-accessible" name="Role">
+
+
                             <option value="Admin">Admin</option>
-                            <option selected value="User">User</option>
-                        }
-                    </select>
-                </div>
-            }
-            else
-            {
-                <div class="form-group col-md-5">
-                    <label class="col-sm-3">Status</label>
-                    <select id="Role" class="select2 form-select shadow-none select2-hidden-accessible" name="Role">
+                            <option value="User">User</option>
 
-
-                        <option value="Admin">Admin</option>
-                        <option value="User">User</option>
-
-                    </select>
-                </div>
-            }
-            <br />
-            @if (Model.ID != 0)
-            {
-                <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
-            }
-            else
-            {
-                <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
-            }
-            <a href="@Url.Action("Users","Admin")" class="btn btn-outline-danger"> CANCEL</a>
-        </form>
-    </div>
-</div>
-          
-
-            
-                
-
-     
-        <div class="errorDiv">
-
+                        </select>
+                    </div>
+                    }
+                }
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Users","Admin")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
         </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
 
 }
 
+@if (Session["Role"] != null)
+{
 
-<script>
-    	$("#actionButton").click(function () {
+    <script>
+    	$("#actionButton").click(function() {
             $.ajax({
-                url: '@Url.Action("UserAction", "Admin")',
+            url: '@Url.Action("UserAction", "Admin")',
                 type: "post",
                 data: $("#actionForm").serialize()
             })
-                .done(function () {
+                .done(function() {
 
-                    window.location.href = "@Url.Action("Users", "Admin")";
+                window.location.href = "@Url.Action("Users", "Admin")";
 
-                });
-	});
-</script>
+            });
+        });
+
+    </script>
+}
+else
+{
+    <script>
+    	$("#actionButton").click(function() {
+            $.ajax({
+            url: '@Url.Action("UserAction", "Admin")',
+                type: "post",
+                data: $("#actionForm").serialize()
+            })
+                .done(function() {
+
+                window.location.href = "@Url.Action("LogOut", "Home")";
+
+            });
+        });
+
+    </script>
+}
