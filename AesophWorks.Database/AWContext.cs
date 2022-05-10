@@ -29,6 +29,7 @@ namespace AesophWorks.Database
         public DbSet<Handle> Handles { get; set; }
         public DbSet<GiftBox> GiftBoxes { get; set; }
         public DbSet<Order> Orders { get; set; }
-
+        public DbSet<WorkshopBooking> WorkshopBookings { get; set; }
+        public DbSet<Workshop> Workshops { get; set; }
     }
 }

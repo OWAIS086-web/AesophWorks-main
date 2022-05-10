@@ -120,6 +120,18 @@
     <Compile Include="Migrations\202205091428002_OrderValuesFixes.designer.cs">
       <DependentUpon>202205091428002_OrderValuesFixes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205101457507_addedworkshop.cs" />
+    <Compile Include="Migrations\202205101457507_addedworkshop.designer.cs">
+      <DependentUpon>202205101457507_addedworkshop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205101912417_workshopprice.cs" />
+    <Compile Include="Migrations\202205101912417_workshopprice.designer.cs">
+      <DependentUpon>202205101912417_workshopprice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205101919206_booking.cs" />
+    <Compile Include="Migrations\202205101919206_booking.designer.cs">
+      <DependentUpon>202205101919206_booking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -184,6 +196,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205091428002_OrderValuesFixes.resx">
       <DependentUpon>202205091428002_OrderValuesFixes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205101457507_addedworkshop.resx">
+      <DependentUpon>202205101457507_addedworkshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205101912417_workshopprice.resx">
+      <DependentUpon>202205101912417_workshopprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205101919206_booking.resx">
+      <DependentUpon>202205101919206_booking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
