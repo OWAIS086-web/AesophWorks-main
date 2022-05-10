@@ -1,0 +1,367 @@
+﻿@model AesophWorks.ViewModels.MakeOrderViewModel
+
+@{
+    ViewBag.Title = "_DetailSection";
+}
+<style>
+    a[href="#finish"] {
+        display: none !important;
+    }
+</style>
+
+
+<div id="EditdetailsSection">
+    <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order Save</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Your Order Updated Successfully</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="@Url.Action("Dashboard","User")" class="btn btn-outline-success" data-dismiss="modal">Okay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form id="example-form" class="mt-5">
+        <div>
+            <input type="hidden" value="@Model.ID" name="ID" />
+            <h3>Select Product</h3>
+            <section>
+                <label for="product">Select Product</label>
+                <select id="Product" onchange="GetData()" class="select2 form-select shadow-none select2-hidden-accessible" name="Item">
+                    @foreach (var item in Model.Items)
+                    {
+                        if (Model.Item == item.ID)
+                        {
+                            <option selected value="@item.ID">@item.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.ID">@item.Name</option>
+
+                        }
+                    }
+                </select>
+
+
+            </section>
+
+            @if (Model.OrderTypes != null)
+            {
+                <h3>Order Type</h3>
+                <section>
+                    <label for="name">Select Order Type</label>
+                    <select id="OrderType" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="OrderType">
+                        @foreach (var item in Model.OrderTypes)
+                        {
+                            if (Model.OrderType == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.GiftBoxes != null)
+            {
+                <h3>Select Gift Box</h3>
+                <section>
+                    <label for="name">Select Gift Box</label>
+                    <select id="GiftBox" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="GiftBox">
+                        @foreach (var item in Model.GiftBoxes)
+                        {
+                            if (Model.GiftBox == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.Handles !=  null)
+            {
+                <h3>Select Handles</h3>
+                <section>
+                    <label for="name">Select Handle</label>
+                    <select id="Handle" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Handle">
+                        @foreach (var item in Model.Handles)
+                        {
+                            if (Model.Handle == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.WoodTypes != null)
+            {
+                <h3>Wood Type</h3>
+                <section>
+                    <label for="name">Select Wood Type</label>
+                    <select id="WoodType" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="WoodType">
+                        @foreach (var item in Model.WoodTypes)
+                        {
+                            if (Model.WoodType == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+
+                </section>
+            }
+            @if (Model.Feets != null)
+            {
+                <h3>Select Feet</h3>
+                <section>
+                    <label for="name">Select Feet</label>
+                    <select id="Feet" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Feet">
+                        @foreach (var item in Model.Feets)
+                        {
+                            if (Model.Feet == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.Inlays != null)
+            {
+                <h3>Select Inlay</h3>
+                <section>
+                    <label for="name">Select Inlay</label>
+                    <select id="Inlay" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Inlay">
+                        @foreach (var item in Model.Inlays)
+                        {
+                            if (Model.Inlay == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+
+                    <div class="otherspecs">
+                        <label>Inlay Text Style</label>
+                        <input value="@Model.InlayTextStyle" class="form-control" type="text" name="InlayTextStyle" />
+
+                        <label>Inlay Text Specification</label>
+                        <input value="@Model.InlayTextSpecification" class="form-control" type="text" name="InlayTextSpecification" />
+
+                    </div>
+                </section>
+            }
+            @if (Model.Sizes != null)
+            {
+                <h3>Select Size</h3>
+                <section>
+                    <label for="name">Select Size</label>
+                    <select id="Size" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Size">
+                        @foreach (var item in Model.Sizes)
+                        {
+                            if (Model.Size == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                </section>
+            }
+            @if (Model.Accents != null)
+            {
+                <h3>Select Accent</h3>
+                <section>
+                    <label for="name">Select Accent</label>
+                    <select id="Accent" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="Accent">
+                        @foreach (var item in Model.Accents)
+                        {
+                            if (Model.Accent == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                </section>}
+            @if (Model.CutterButters != null)
+            {
+                <h3>Cutter Butter</h3>
+                <section>
+                    <label for="name">Select Cutter Butter</label>
+                    <select id="CutterButter" onchange="GetTotal()" class="select2 form-select shadow-none select2-hidden-accessible" name="CutterButter">
+                        @foreach (var item in Model.CutterButters)
+                        {
+                            if (Model.CutterButter == item.ID)
+                            {
+                                <option selected value="@item.ID">@item.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@item.ID">@item.Name</option>
+
+                            }
+                        }
+                    </select>
+                </section>
+            }
+
+            <h3>Finish</h3>
+            <section>
+                <button type="button" class="btnEditOrder btn btn-block btn-outline-primary">Edit Order</button>
+            </section>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    var form = $("#example-form");
+      form.validate({
+        errorPlacement: function errorPlacement(error, element) {
+          element.before(error);
+        },
+      });
+      form.children("div").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        onStepChanging: function (event, currentIndex, newIndex) {
+          form.validate().settings.ignore = ":disabled,:hidden";
+          return form.valid();
+        },
+        onFinishing: function (event, currentIndex) {
+          form.validate().settings.ignore = ":disabled";
+          return form.valid();
+        },
+        onFinished: function (event, currentIndex) {
+          alert("Submitted!");
+        },
+      });
+
+
+    $(".btnEditOrder").click(function () {
+		$.ajax({
+			url: '@Url.Action("EditOrder", "User")',
+			type: "post",
+            data: $("#example-form").serialize()
+		})
+		.done(function () {
+
+            $("#myModal").modal('show');
+            @*window.location.href = "@Url.Action("Dashboard","User")";*@
+
+		});
+	});
+
+
+
+    function GetData() {
+        $.get("@Url.Action("GetData","User")", {
+            Product: $('#Product').find(":selected").val()
+
+        }, function (data) {
+            $("#EditdetailsSection").html(data);
+            GetTotal();
+        });
+    }
+
+
+    $(document).ready(function () {
+        // we call the function
+        GetTotal();
+    });
+
+    function GetTotal() {
+         $.ajax({
+            url: '@Url.Action("GetTotal", "User")',
+            type: "GET",
+             data: {
+                 Product: $('#Product').find(":selected").val(),
+                 WoodType: $('#WoodType').find(":selected").val(),
+                 Size: $('#Size').find(":selected").val(),
+                 Accent: $('#Accent').find(":selected").val(),
+                 CutterButter: $('#CutterButter').find(":selected").val(),
+                 Feet: $('#Feet').find(":selected").val(),
+                 OrderType: $('#OrderType').find(":selected").val(),
+                 GiftBox: $('#GiftBox').find(":selected").val(),
+                 Handle: $('#Handle').find(":selected").val(),
+                 Inlay: $('#Inlay').find(":selected").val()
+             }
+         })
+             .done(function (data) {
+                 $("#totalsection").val(data);
+                 HideView();
+             })
+             .error(function (error) {
+                 alert(error);
+             })
+
+    }
+
+
+    function HideView() {
+        var sel = $("#Inlay option:selected").text();
+
+        if (sel == "Yes") {
+            $(".otherspecs").show();
+
+        }
+        else {
+            {
+                $(".otherspecs").hide();
+
+            }
+        }
+    }
+
+
+</script>
+
+
+
+

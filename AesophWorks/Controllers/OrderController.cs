@@ -30,7 +30,7 @@ namespace AesophWorks.Controllers
             model.ID = Order.ID;
             model.Item = Order.Item;
 
-            return View("_Delete", model);
+            return PartialView("_Delete", model);
         }
 
         [HttpPost]

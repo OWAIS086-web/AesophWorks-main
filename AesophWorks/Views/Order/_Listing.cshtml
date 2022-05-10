@@ -42,7 +42,7 @@
                                     <td>
                                         <button data-id="@item.ID" type="button" class="btnView btn btn-info btn-icon-text"><i class="mdi mdi-eye-outline"></i> VIEW DETAILS</button>
                                         <button data-id="@item.ID" type="button" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</button>
-                                        <button data-href="@Url.Action("Delete", "Order", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
+                                        <button data-id="@item.ID" type="button" class="btnDelete data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
 
                                     </td>
                                 </tr>
@@ -65,7 +65,7 @@
 <script>
     $(".btnEdit").click(function () {
         $.ajax({
-            url: '@Url.Action("Edit", "Order")',
+            url: '@Url.Action("MakeOrder", "User")',
             type: "GET",
             data: { ID: $(this).attr("data-id") }
         })
@@ -76,6 +76,22 @@
                 alert(error);
             })
     });
+
+
+    $(".btnDelete").click(function () {
+        $.ajax({
+            url: '@Url.Action("Delete", "Order")',
+            type: "GET",
+            data: { ID: $(this).attr("data-id") }
+        })
+            .done(function (oData) {
+            $("#actionContainer").html(oData);
+            })
+            .error(function (error) {
+                alert(error);
+            })
+    });
+
 
 
     $(".btnView").click(function () {

@@ -64,6 +64,16 @@ namespace AesophWorks.Services
                 return context.WoodTypes.Find(ID);
             }
         }
+
+
+        public WoodType GetWoodType(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.WoodTypes.Where(x=>x.Name == Name).FirstOrDefault();
+            }
+        }
+
         public void SaveWoodType(WoodType woodType)
         {
             using(var context = new AWContext())
@@ -153,6 +163,15 @@ namespace AesophWorks.Services
             }
         }
 
+        public Size GetSize(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.Sizes.Where(x => x.Name == Name).FirstOrDefault();
+
+            }
+        }
+
         public List<Size> GetSelectedProductSizes(int ItemID)
         {
 
@@ -219,6 +238,15 @@ namespace AesophWorks.Services
                 return context.Inlays.Find(ID);
             }
         }
+
+        public Inlay GetInlay(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.Inlays.Where(x => x.Name == Name).FirstOrDefault();
+            }
+        }
+
         public void SaveInlay(Inlay Inlay)
         {
             using (var context = new AWContext())
@@ -278,6 +306,15 @@ namespace AesophWorks.Services
             using (var context = new AWContext())
             {
                 return context.Accents.Find(ID);
+            }
+        }
+
+
+        public Accent GetAccent(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.Accents.Where(x => x.Name == Name).FirstOrDefault();
             }
         }
         public void SaveAccent(Accent Accent)
@@ -353,6 +390,15 @@ namespace AesophWorks.Services
                 return context.CutterButters.Find(ID);
             }
         }
+
+        public CutterButter GetCutterButter(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.CutterButters.Where(x => x.Name == Name).FirstOrDefault();
+            }
+        }
+
         public void SaveCutterButter(CutterButter CutterButter)
         {
             using (var context = new AWContext())
@@ -429,6 +475,15 @@ namespace AesophWorks.Services
                 return context.Feets.Find(ID);
             }
         }
+
+        public Feet GetFeet(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.Feets.Where(x => x.Name == Name).FirstOrDefault();
+            }
+        }
+
         public void SaveFeet(Feet Feet)
         {
             using (var context = new AWContext())
@@ -506,6 +561,15 @@ namespace AesophWorks.Services
                 return context.OrderTypes.Find(ID);
             }
         }
+
+        public OrderType GetOrderType(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.OrderTypes.Where(x=>x.Name == Name).FirstOrDefault();
+            }
+        }
+
         public void SaveOrderType(OrderType OrderType)
         {
             using (var context = new AWContext())
@@ -580,6 +644,15 @@ namespace AesophWorks.Services
             using (var context = new AWContext())
             {
                 return context.Handles.Find(ID);
+            }
+        }
+
+
+        public Handle GetHandle(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.Handles.Where(x => x.Name == Name).FirstOrDefault();
             }
         }
         public void SaveHandle(Handle Handle)
@@ -657,6 +730,15 @@ namespace AesophWorks.Services
             using (var context = new AWContext())
             {
                 return context.GiftBoxes.Find(ID);
+            }
+        }
+
+
+        public GiftBox GetGiftBox(string Name)
+        {
+            using (var context = new AWContext())
+            {
+                return context.GiftBoxes.Where(x=>x.Name == Name).FirstOrDefault();
             }
         }
         public void SaveGiftBox(GiftBox GiftBox)

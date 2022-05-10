@@ -17,6 +17,7 @@
 
         <hr />
 
+      
 
         <div class="row mb-3">
             <div class="col-md-6 col-lg-2 col-xlg-3">
@@ -42,6 +43,7 @@
             <form id="example-form" class="mt-5">
                 <div>
                     <h3>Select Product</h3>
+                    <input type="hidden" name="ID" id="ID" value="@Model.ID" />
                     <section>
                         <label for="product">Select Product</label>
                         <select id="Product" onchange="GetData()" class="select2 form-select shadow-none select2-hidden-accessible" name="Product">
@@ -110,7 +112,8 @@
 
     function GetData() {
         $.get("@Url.Action("GetData","User")", {
-            Product: $('#Product').find(":selected").val()
+            Product: $('#Product').find(":selected").val(),
+            ID: $('#ID').val()
 
         }, function (data) {
             $("#detailsSection").html(data);

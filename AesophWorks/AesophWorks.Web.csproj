@@ -1347,6 +1347,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\_Listing.cshtml" />
     <Content Include="Views\Order\_Delete.cshtml" />
+    <Content Include="Views\User\_EditDetailSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

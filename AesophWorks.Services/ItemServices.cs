@@ -59,6 +59,18 @@ namespace AesophWorks.Services
             }
 
         }
+
+
+        public Item GetItem(string Name)
+        {
+
+            using (var context = new AWContext())
+            {
+
+                return context.Items.Where(x => x.Name == Name).FirstOrDefault();
+            }
+
+        }
         #endregion
 
         #region UpdateItem

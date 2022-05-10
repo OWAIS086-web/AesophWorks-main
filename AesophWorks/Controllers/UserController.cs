@@ -20,41 +20,241 @@ namespace AesophWorks.Controllers
 
 
 
-        public ActionResult MakeOrder()
+        public ActionResult MakeOrder(int ID = 0)
         {
             MakeOrderViewModel model = new MakeOrderViewModel();
-            model.Items = ItemServices.Instance.GetAllItems("");
-            model.Inlays = ItemDataServices.Instance.GetAllInlays("");
-            model.Sizes = ItemDataServices.Instance.GetAllSizes("");
-            model.WoodTypes = ItemDataServices.Instance.GetAllWoodTypes("");
-            model.Accents = ItemDataServices.Instance.GetAllAccents("");
-            model.CutterButters = ItemDataServices.Instance.GetAllCutterButters("");
-            model.Feets = ItemDataServices.Instance.GetAllFeets("");
-            model.OrderTypes = ItemDataServices.Instance.GetAllOrderTypes("");
-            model.Handles = ItemDataServices.Instance.GetAllHandles("");
-            model.GiftBoxes = ItemDataServices.Instance.GetAllGiftBoxs("");
-            model.Total = 0;
-            return View(model);
+            if (ID == 0)
+            {
+                model.Items = ItemServices.Instance.GetAllItems("");
+                model.Inlays = ItemDataServices.Instance.GetAllInlays("");
+                model.Sizes = ItemDataServices.Instance.GetAllSizes("");
+                model.WoodTypes = ItemDataServices.Instance.GetAllWoodTypes("");
+                model.Accents = ItemDataServices.Instance.GetAllAccents("");
+                model.CutterButters = ItemDataServices.Instance.GetAllCutterButters("");
+                model.Feets = ItemDataServices.Instance.GetAllFeets("");
+                model.OrderTypes = ItemDataServices.Instance.GetAllOrderTypes("");
+                model.Handles = ItemDataServices.Instance.GetAllHandles("");
+                model.GiftBoxes = ItemDataServices.Instance.GetAllGiftBoxs("");
+                model.Total = 0;
+                return View(model);
+            }
+            else {
+                Double GrandTotal = 0;
+                string InlayTextStyle = "";
+                string InlayTextSpecification = "";
+
+                var Order = UserServices.Instance.GetOrder(ID);
+                var Item = ItemServices.Instance.GetItem(Order.Item);
+                var CutterButter = ItemDataServices.Instance.GetCutterButter(Order.CutterButter);
+                var WoodType = ItemDataServices.Instance.GetWoodType(Order.WoodType);
+                var Handle = ItemDataServices.Instance.GetHandle(Order.Handle);
+                var Inlay = ItemDataServices.Instance.GetInlay(Order.Inlay);
+                if (Inlay != null)
+                {
+                    InlayTextStyle = Order.InlayTextStyle;
+                    InlayTextSpecification = Order.InlayTextSpecification;
+                }
+                var GiftBox = ItemDataServices.Instance.GetGiftBox(Order.GiftBox);
+                var Size = ItemDataServices.Instance.GetSize(Order.Size);
+                var Accent = ItemDataServices.Instance.GetAccent(Order.Accent);
+                var OrderType = ItemDataServices.Instance.GetOrderType(Order.OrderType);
+                var Feet = ItemDataServices.Instance.GetFeet(Order.Feet);
+
+
+
+
+
+
+                if (Order.GiftBox != null)
+                {
+                    Order.GiftBox = GiftBox.Name;
+                    Order.GiftBoxPrice = GiftBox.Price;
+                    model.GiftBoxes = ItemDataServices.Instance.GetAllGiftBoxs("");
+                    model.GiftBox = GiftBox.ID;
+
+
+                }
+                if (Order.Handle != null)
+                {
+                    model.Handles = ItemDataServices.Instance.GetAllHandles("");
+                    Order.Handle = Handle.Name;
+                    Order.HandPrice = Handle.Price;
+                    model.Handle = Handle.ID;
+                }
+                if (Order.WoodType != null)
+                {
+                    model.WoodTypes = ItemDataServices.Instance.GetAllWoodTypes("");
+
+                    model.WoodType = WoodType.ID;
+
+
+                }
+                if (Order.Feet != null)
+                {
+                    model.Feets = ItemDataServices.Instance.GetAllFeets("");
+
+                    model.Feet = Feet.ID;
+                }
+                if (Order.Inlay != null)
+                {
+                    model.Inlays = ItemDataServices.Instance.GetAllInlays("");
+                    model.InlayTextSpecification = InlayTextSpecification;
+                    model.InlayTextStyle = InlayTextStyle;
+                    model.Inlay = Inlay.ID;
+                }
+                if (Order.Size != null)
+                {
+                    model.Sizes = ItemDataServices.Instance.GetAllSizes("");
+
+                    model.Size = Size.ID;
+
+                }
+                if (Order.CutterButter != null)
+                {
+                    model.CutterButters = ItemDataServices.Instance.GetAllCutterButters("");
+
+                    model.CutterButter = CutterButter.ID;
+
+                }
+                if (Order.OrderType != null)
+                {
+                    model.OrderTypes = ItemDataServices.Instance.GetAllOrderTypes("");
+
+                    model.OrderType = OrderType.ID;
+                }
+                if (Order.Accent != null)
+                {
+                    model.Accents = ItemDataServices.Instance.GetAllAccents("");
+
+                    model.Accent = Accent.ID;
+                }
+                model.ID = Order.ID;
+                model.Name = Order.Name;
+                model.Item = Item.ID;
+                model.Items = ItemServices.Instance.GetAllItems("");
+                return PartialView("_EditDetailSection", model);
+            }
         }
 
-        public PartialViewResult GetData(int Product)
+        public PartialViewResult GetData(int Product, int ID = 0)
         {
-
             MakeOrderViewModel model = new MakeOrderViewModel();
-         
-            model.Items = ItemServices.Instance.GetAllItems("");
-            TempData["ProductID"] = Product;
-           /* model.Total = 10*/;
-            model.Inlays =      ItemDataServices.Instance.GetSelectedProductInlays(Product);
-            model.Sizes =       ItemDataServices.Instance.GetSelectedProductSizes(Product);
-            model.WoodTypes =   ItemDataServices.Instance.GetSelectedProductWoodTypes(Product);
-            model.Accents =     ItemDataServices.Instance.GetSelectedProductAccents(Product);
-            model.CutterButters=ItemDataServices.Instance.GetSelectedProductCutterButters(Product);
-            model.Feets =       ItemDataServices.Instance.GetSelectedProductFeets(Product);
-            model.OrderTypes = ItemDataServices.Instance.GetSelectedProductOrderTypes(Product);
-            model.Handles = ItemDataServices.Instance.GetSelectedProductHandles(Product);
-            model.GiftBoxes = ItemDataServices.Instance.GetSelectedProductGiftBoxs(Product);
-            return PartialView("_DetailSection",model);
+            if (model.ID == 0)
+            {
+                model.Items = ItemServices.Instance.GetAllItems("");
+                TempData["ProductID"] = Product;
+                /* model.Total = 10*/
+                ;
+                model.Inlays = ItemDataServices.Instance.GetSelectedProductInlays(Product);
+                model.Sizes = ItemDataServices.Instance.GetSelectedProductSizes(Product);
+                model.WoodTypes = ItemDataServices.Instance.GetSelectedProductWoodTypes(Product);
+                model.Accents = ItemDataServices.Instance.GetSelectedProductAccents(Product);
+                model.CutterButters = ItemDataServices.Instance.GetSelectedProductCutterButters(Product);
+                model.Feets = ItemDataServices.Instance.GetSelectedProductFeets(Product);
+                model.OrderTypes = ItemDataServices.Instance.GetSelectedProductOrderTypes(Product);
+                model.Handles = ItemDataServices.Instance.GetSelectedProductHandles(Product);
+                model.GiftBoxes = ItemDataServices.Instance.GetSelectedProductGiftBoxs(Product);
+                return PartialView("_DetailSection", model);
+            }
+            else
+            {
+                Double GrandTotal = 0;
+                string InlayTextStyle = "";
+                string InlayTextSpecification = "";
+
+                var Order = UserServices.Instance.GetOrder(ID);
+                var Item = ItemServices.Instance.GetItem(Order.Item);
+                var CutterButter = ItemDataServices.Instance.GetCutterButter(Order.CutterButter);
+                var WoodType = ItemDataServices.Instance.GetWoodType(Order.WoodType);
+                var Handle = ItemDataServices.Instance.GetHandle(Order.Handle);
+                var Inlay = ItemDataServices.Instance.GetInlay(Order.Inlay);
+                if (Inlay != null)
+                {
+                    InlayTextStyle = Order.InlayTextStyle;
+                    InlayTextSpecification = Order.InlayTextSpecification;
+                }
+                var GiftBox = ItemDataServices.Instance.GetGiftBox(Order.GiftBox);
+                var Size = ItemDataServices.Instance.GetSize(Order.Size);
+                var Accent = ItemDataServices.Instance.GetAccent(Order.Accent);
+                var OrderType = ItemDataServices.Instance.GetOrderType(Order.OrderType);
+                var Feet = ItemDataServices.Instance.GetFeet(Order.Feet);
+
+
+
+
+
+
+                if (Order.GiftBox != null)
+                {
+                    Order.GiftBox = GiftBox.Name;
+                    Order.GiftBoxPrice = GiftBox.Price;
+                    model.GiftBoxes = ItemDataServices.Instance.GetAllGiftBoxs("");
+                    model.GiftBox = GiftBox.ID;
+
+
+                }
+                if (Order.Handle != null)
+                {
+                    model.Handles = ItemDataServices.Instance.GetAllHandles("");
+                    Order.Handle = Handle.Name;
+                    Order.HandPrice = Handle.Price;
+                    model.Handle = Handle.ID;
+                }
+                if (Order.WoodType != null)
+                {
+                    model.WoodTypes = ItemDataServices.Instance.GetAllWoodTypes("");
+
+                    model.WoodType = WoodType.ID;
+
+
+                }
+                if (Order.Feet != null)
+                {
+                    model.Feets = ItemDataServices.Instance.GetAllFeets("");
+
+                    model.Feet = Feet.ID;
+                }
+                if (Order.Inlay != null)
+                {
+                    model.Inlays = ItemDataServices.Instance.GetAllInlays("");
+                    model.InlayTextSpecification = InlayTextSpecification;
+                    model.InlayTextStyle = InlayTextStyle;
+                    model.Inlay = Inlay.ID;
+                }
+                if (Order.Size != null)
+                {
+                    model.Sizes = ItemDataServices.Instance.GetAllSizes("");
+
+                    model.Size = Size.ID;
+
+                }
+                if (Order.CutterButter != null)
+                {
+                    model.CutterButters = ItemDataServices.Instance.GetAllCutterButters("");
+
+                    model.CutterButter = CutterButter.ID;
+
+                }
+                if (Order.OrderType != null)
+                {
+                    model.OrderTypes = ItemDataServices.Instance.GetAllOrderTypes("");
+
+                    model.OrderType = OrderType.ID;
+                }
+                if (Order.Accent != null)
+                {
+                    model.Accents = ItemDataServices.Instance.GetAllAccents("");
+
+                    model.Accent = Accent.ID;
+                }
+                model.ID = Order.ID;
+                model.Name = Order.Name;
+                model.Item = Item.ID;
+                model.Items = ItemServices.Instance.GetAllItems("");
+                return PartialView("_EditDetailSection", model);
+
+            }
+
         }
 
 
@@ -232,5 +432,8 @@ namespace AesophWorks.Controllers
             return RedirectToAction("Dashboard", "User");
         }
 
+
+
+        
     }
 }
