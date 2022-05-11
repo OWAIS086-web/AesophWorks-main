@@ -1,0 +1,84 @@
+﻿@model AesophWorks.ViewModels.WorkshopBookingActionViewModel
+@{
+    ViewBag.Title = "Booking";
+}
+
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit Booking</span>
+                }
+                else
+                {
+                    <span>Save Booking</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Workshop</label>
+                            <select class="select2 form-select shadow-none select2-hidden-accessible" name="Workshop" id="Workshop">
+                                @foreach (var item in Model.Workshops)
+                                {
+                                    <option value="@item.ID">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+
+                    
+
+                    </div>
+                </div>
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update Booking</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save Booking</button>
+                }
+                <a href="@Url.Action("Index","Workshop")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Booking", "Workshop")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index","Workshop")";
+
+		});
+	});
+</script>

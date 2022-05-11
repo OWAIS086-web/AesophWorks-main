@@ -19,4 +19,16 @@ namespace AesophWorks.ViewModels
         public DateTime Date { get; set; }
         public Double Price { get; set; }
     }
+
+
+
+    public class WorkshopBookingActionViewModel
+    {
+        public List<Workshop> Workshops { get; set; }
+        public int ID { get; set; }
+        public string BookedBy { get; set; }
+        public int Workshop { get; set; }
+        public List<WorkshopBooking> WorkshopBookings { get; set; }
+    }
+
 }

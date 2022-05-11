@@ -91,5 +91,47 @@ namespace AesophWorks.Controllers
             return RedirectToAction("Index", "Workshop");
 
         }
+
+
+        [HttpGet]
+        public ActionResult Booking(string SearchTerm)
+        {
+            WorkshopBookingActionViewModel model = new WorkshopBookingActionViewModel();
+            model.Workshops = WorkshopServices.Instance.GetAllWorkshops(SearchTerm);
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult GetAllBookings(string SearchTerm)
+        {
+            WorkshopBookingActionViewModel model = new WorkshopBookingActionViewModel();
+            model.WorkshopBookings = WorkshopServices.Instance.GetAllWorkshopBooking(SearchTerm);
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult Booking(WorkshopBookingActionViewModel model)
+        {
+            if(model.ID != 0) //Saving Record
+            {
+                var Booking = WorkshopServices.Instance.GetWorkshopBooking(model.ID);
+                var Workshop = WorkshopServices.Instance.GetWorkshop(model.Workshop);
+                Booking.ID = model.ID;
+                Booking.Name = Workshop.Name;
+                Booking.BookedBy = model.BookedBy;
+                WorkshopServices.Instance.UpdateWorkshopBooking(Booking);
+            }
+            else //Update Record
+            {
+                var WorkshopBooking = new WorkshopBooking();
+                WorkshopBooking.ID = model.ID;
+                var Workshop = WorkshopServices.Instance.GetWorkshop(model.Workshop);
+                WorkshopBooking.Name = Workshop.Name;
+                WorkshopBooking.BookedBy = model.BookedBy;
+                WorkshopServices.Instance.SaveWorkshopBooking(WorkshopBooking);
+            }
+            return RedirectToAction("User", "Dashboard");
+        }
     }
 }

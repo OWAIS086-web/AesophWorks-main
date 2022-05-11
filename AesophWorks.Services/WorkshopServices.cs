@@ -44,6 +44,22 @@ namespace AesophWorks.Services
         }
 
 
+        public List<WorkshopBooking> GetAllWorkshopBooking(string SearchTerm)
+        {
+            using (var context = new AWContext())
+            {
+                if (SearchTerm != null)
+                {
+                    return context.WorkshopBookings.Where(x => x.Name.Contains(SearchTerm)).ToList();
+                }
+                else
+                {
+                    return context.WorkshopBookings.ToList();
+                }
+            }
+        }
+
+
 
 
 
@@ -57,6 +73,17 @@ namespace AesophWorks.Services
             {
 
                 return context.Workshops.Find(ID);
+            }
+
+        }
+
+        public WorkshopBooking GetWorkshopBooking(int ID)
+        {
+
+            using (var context = new AWContext())
+            {
+
+                return context.WorkshopBookings.Find(ID);
             }
 
         }
@@ -83,6 +110,15 @@ namespace AesophWorks.Services
                 context.SaveChanges();
             }
         }
+
+        public void UpdateWorkshopBooking(WorkshopBooking booking)
+        {
+            using (var context = new AWContext())
+            {
+                context.Entry(booking).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
         #endregion
 
         #region SaveWorkshops
@@ -91,6 +127,15 @@ namespace AesophWorks.Services
             using (var context = new AWContext())
             {
                 context.Workshops.Add(Workshop);
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveWorkshopBooking(WorkshopBooking booking)
+        {
+            using (var context = new AWContext())
+            {
+                context.WorkshopBookings.Add(booking);
                 context.SaveChanges();
             }
         }

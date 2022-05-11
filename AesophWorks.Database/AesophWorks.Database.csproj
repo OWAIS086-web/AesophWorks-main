@@ -132,6 +132,10 @@
     <Compile Include="Migrations\202205101919206_booking.designer.cs">
       <DependentUpon>202205101919206_booking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205110417495_dateremovedfrombooking.cs" />
+    <Compile Include="Migrations\202205110417495_dateremovedfrombooking.designer.cs">
+      <DependentUpon>202205110417495_dateremovedfrombooking.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -205,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205101919206_booking.resx">
       <DependentUpon>202205101919206_booking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205110417495_dateremovedfrombooking.resx">
+      <DependentUpon>202205110417495_dateremovedfrombooking.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
