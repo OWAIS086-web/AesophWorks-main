@@ -76,7 +76,7 @@ namespace AesophWorks.Controllers
             model.ID = Workshop.ID;
             model.Name = Workshop.Name;
 
-            return View("_Delete", model);
+            return View("Delete", model);
         }
 
         [HttpPost]
@@ -94,18 +94,41 @@ namespace AesophWorks.Controllers
 
 
         [HttpGet]
-        public ActionResult Booking(string SearchTerm)
+        public ActionResult Booking(int ID = 0)
         {
+           
             WorkshopBookingActionViewModel model = new WorkshopBookingActionViewModel();
-            model.Workshops = WorkshopServices.Instance.GetAllWorkshops(SearchTerm);
-            return View(model);
+            model.Workshops = WorkshopServices.Instance.GetAllWorkshops("");
+            if (ID != 0)
+            {
+                var WorkshopBooking = WorkshopServices.Instance.GetWorkshopBooking(ID);
+                model.ID = WorkshopBooking.ID;
+                var Workshop = WorkshopServices.Instance.GetWorkshop(WorkshopBooking.Name);
+                model.Workshop = Workshop.ID;
+                model.BookedBy = WorkshopBooking.BookedBy;
+        
+                return View("Booking", model);
+
+            }
+            else
+            {
+                return View("Booking", model);
+            }
         }
 
         [HttpGet]
         public ActionResult GetAllBookings(string SearchTerm)
         {
             WorkshopBookingActionViewModel model = new WorkshopBookingActionViewModel();
-            model.WorkshopBookings = WorkshopServices.Instance.GetAllWorkshopBooking(SearchTerm);
+            var WorkshopBookList = WorkshopServices.Instance.GetAllWorkshopBooking(SearchTerm);
+            List<WorkshopLists> myList = new List<WorkshopLists>();
+
+            foreach (var item in WorkshopBookList)
+            {
+                var workshop = WorkshopServices.Instance.GetWorkshop(item.Name);
+                myList.Add(new WorkshopLists { ID = item.ID,Workshop = workshop,BookedBy = item.BookedBy });
+            }
+            model.WorkshopBookings = myList;
             return View(model);
         }
 
@@ -131,7 +154,34 @@ namespace AesophWorks.Controllers
                 WorkshopBooking.BookedBy = model.BookedBy;
                 WorkshopServices.Instance.SaveWorkshopBooking(WorkshopBooking);
             }
-            return RedirectToAction("User", "Dashboard");
+                return RedirectToAction("GetAllBookings", "Workshop");
+        }
+
+
+
+        [HttpGet]
+        public ActionResult DeleteBooking(int ID)
+        {
+            WorkshopBookingActionViewModel model = new WorkshopBookingActionViewModel();
+            var workshopbooking = WorkshopServices.Instance.GetWorkshopBooking(ID);
+            var Workshop = WorkshopServices.Instance.GetWorkshop(workshopbooking.Name);
+            model.ID = workshopbooking.ID;
+
+            return View("DeleteBooking", model);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteBooking(SizeActionViewModel model)
+        {
+
+            if (model.ID != 0) //we are trying to delete a record
+            {
+                var workshopbooking = WorkshopServices.Instance.GetWorkshopBooking(model.ID);
+                WorkshopServices.Instance.DeleteWorkshopBooking(workshopbooking.ID);
+
+            }
+            return RedirectToAction("GetAllBookings", "Workshop");
+
         }
     }
 }

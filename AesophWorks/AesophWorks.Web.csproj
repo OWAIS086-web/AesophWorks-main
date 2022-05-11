@@ -1351,12 +1351,13 @@
     <Content Include="Views\Order\_Delete.cshtml" />
     <Content Include="Views\User\_EditDetailSection.cshtml" />
     <Content Include="Views\User\ViewDetails.cshtml" />
-    <Content Include="Views\Workshop\_Delete.cshtml" />
+    <Content Include="Views\Workshop\Delete.cshtml" />
     <Content Include="Views\Workshop\_Listing.cshtml" />
     <Content Include="Views\Workshop\Action.cshtml" />
     <Content Include="Views\Workshop\Index.cshtml" />
     <Content Include="Views\Workshop\Booking.cshtml" />
     <Content Include="Views\Workshop\GetAllBookings.cshtml" />
+    <Content Include="Views\Workshop\DeleteBooking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

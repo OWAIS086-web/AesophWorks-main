@@ -20,15 +20,22 @@ namespace AesophWorks.ViewModels
         public Double Price { get; set; }
     }
 
-
+    public class WorkshopLists
+    {
+        public List<Workshop> Workshops { get; set; }
+        public Workshop Workshop { get; set; }
+        public int ID { get; set; }
+        public string BookedBy { get; set; }
+    }
 
     public class WorkshopBookingActionViewModel
     {
+        public string SearchTerm { get; set; }
         public List<Workshop> Workshops { get; set; }
         public int ID { get; set; }
         public string BookedBy { get; set; }
         public int Workshop { get; set; }
-        public List<WorkshopBooking> WorkshopBookings { get; set; }
+        public List<WorkshopLists> WorkshopBookings { get; set; }
     }
 
 }

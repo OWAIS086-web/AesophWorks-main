@@ -152,6 +152,17 @@ namespace AesophWorks.Services
                 context.SaveChanges();
             }
         }
+
+        public void DeleteWorkshopBooking(int ID)
+        {
+            using (var context = new AWContext())
+            {
+
+                var cb = context.WorkshopBookings.Find(ID);
+                context.WorkshopBookings.Remove(cb);
+                context.SaveChanges();
+            }
+        }
         #endregion
     }
 }
